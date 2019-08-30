@@ -4,6 +4,12 @@
     <!-- Bootstrap -->
     <link href="src/bootstrap/bootstrap.css" type="text/css" rel="stylesheet" />
     <link href="src/css/main.css" type="text/css" rel="stylesheet" />
+    <style>
+     .timeline-container::after {
+         border: 0px solid white;
+         background-color: #ffffff00
+     }
+    </style>
 </head>
 
 <body>
@@ -20,22 +26,68 @@
                     <a href="index.html" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link active">About</a>
-                </li>
-                <li class="nav-item">
                     <a href="swarm_robotics.html" class="nav-link active">Swarm Robotics</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+    <div id="carousel" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="src/images/cat.jpg" class="d-block w-100" alt="..." style="max-height: 75vh">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Engineering Capstone</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="section">
-        <h1 class="featurette-heading" style="margin-top:70px">What is Engineering Capstone?</h1>
+        <h1 class="featurette-heading" style="margin-top:-50px">What is Engineering Capstone?</h1>
         <p class="lead">
-            Engineering Capstone is a rigorous year long course
-            focusing on a single central project which will guide
-            students thinking and research.
+            Engineering Capstone is a rigorous year long course which will guide
+            students' thinking and research around a complex engineering challenge.
+            The 2019-2020 school year is the first time that this opportunity is
+            available to students at Pacific Grove High School.
+
+            We hope to inspire students to pursue their interests in STEM, teach
+            them to solve complex issues through research and experimentation,
+            and finally, give them experience in modern research techniques.
+
         </p>
         <hr class="featurette-divider">
     </div>
 
+    <div class="section">
+        <h1 class="featurette-heading" style="margin-top:-50px">Latest</h1>
+        <p class="lead">
+            Check out the latest update about the <a href="swarm_robotics.html">Swarm Robotics Project</a>. 
+            <br>
+            
+        <div class="timeline timeline-container">
+            <div class="timeline-content">
+                <h2 class="featurette-heading">Week of August 19</h2>
+                <p class="lead">Submitted a grant application to PG Pride to fund the majority of our research project</p>
+            </div>
+        </div>
+        </p>
+        <hr class="featurette-divider">
+    </div>
+
+    <div class="section">
+        <h1 class="featurette-heading" style="margin-top:-50px">Sponsors</h1>
+        <p class="lead">
+            Thank you to our generous sponsor, <a href="https://www.supportpgpride.com/">PG Pride</a>!
+        </p>
+        <hr class="featurette-divider">
+    </div>
+
+    <div class="section">
+            <h1 class="featurette-heading" style="margin-top:-50px">Contact</h1>
+            <p class="lead">
+                For more information, contact <a href="">us</a>.
+            </p>
+            <hr class="featurette-divider">
+        </div>
 </body>
