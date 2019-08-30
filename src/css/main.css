@@ -113,6 +113,12 @@
     border-color: #AF1700;
     border-width: 0px
   }
+
+  .sponsor-img {
+    max-height: 150px; 
+    margin: auto; 
+    margin-top: -50px
+  }
   
   /* Media queries - Responsive timeline on screens less than 600px wide */
   @media screen and (max-width: 600px) {
@@ -144,5 +150,11 @@
     /* Make all timeline-right timeline-containers behave like the timeline-left ones */
     .timeline-right {
     left: 0%;
+    }
+
+    .sponsor-img {
+      max-height: 150px; 
+      margin: auto; 
+      margin-top: 15px;
     }
   }
