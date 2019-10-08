@@ -53,16 +53,44 @@
         <hr class="featurette-divider" id="updates">
         <h1 class="featurette-heading">Progress Updates</h1>
         <div class="section" style="margin: 0% 5% 0% 5%">
+            <h4 class="featurette-heading">Week of September 30</h4>
+            <p class="lead">
+                Began setting up Raspberry Pis for prototyping and swarm simulations. This involved downloading and
+                installing <a href="https://www.raspberrypi.org/downloads/noobs/">Raspbian through NOOBS</a>. We were
+                only able to successfully boot up one computer at this time, most likely due to the SD cards used to
+                install Raspbian on the other machines.
+            </p>
+
+            <h4 class="featurette-heading">Week of September 23</h4>
+            <p class="lead">
+                Researched software for swarm simulation and controlling robots. Based on previous research, the
+                primary operation system to control robots, outside of writing our own software, is the <a href="http://wiki.ros.org/ROS/Introduction">Robot
+                    Operating System (ROS)</a>. An open source software, ROS seems to have a quite extensive community
+                and codebase to work from. There are a few projects by other users which involve swarm communications,
+                which provides a nice starting point to guide our algorithms. In terms of simulations, we looked at a
+                few different options including <a href="http://playerstage.sourceforge.net/doc/Stage-3.2.1/index.html">Stage</a>,
+                a simulator for swarm robotics, and <a href="https://www.argos-sim.info/concepts.php">ARGoS</a>, a
+                large-scale robot simulator. Both seem like accurate and useful simulators, but our final decision is
+                to use <a href="http://gazebosim.org/">Gazebo</a> due to its close ties with the ROS community. Gazebo
+                will allow us to visualize the interactions within the robot swarm and develop an algorithm for the
+                mapping algorithm before building a physical swarm, and can also allow us to predict how the algorithm
+                will scale up if more robot were added to the swarm.
+            </p>
+
             <h4 class="featurette-heading">Week of September 16</h4>
             <p class="lead">
                 Finished <a href="https://docs.google.com/document/d/1qvDgJri6-DRLp8xI9HlUJ1yOsFxDKFsRWZAjstPOQb0/edit?usp=sharing">formal
-                research proposal</a>. Additionally, we continued to look for a robot kit and corresponding electronics.
+                    research proposal</a>. Additionally, we continued to look for a robot kit and corresponding
+                electronics.
                 The kit we will prototype with is the <a href="https://www.pololu.com/product/1567">Wild Thumper</a>
                 chassis, with <a href="http://www.dagurobot.com/DAGU_Wild_Thumper_encoders_RS003_Enco_with_motor_75_1?search=wild%20thumper&category_id=0">
-                these motors</a> and <a href="https://www.amazon.com/Powerextra-Capacity-Connectors-Compatiable-Helicopter/dp/B06WD5VRYZ/ref=sr_1_2_sspa?keywords=7.2v+rc+battery&qid=1569011675&s=toys-and-games&sr=1-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFMWkkwUE9ISDZFMVImZW5jcnlwdGVkSWQ9QTA1NTczMjBKVTBMVTFFWElOVkImZW5jcnlwdGVkQWRJZD1BMDcwNjAyODJNTEI5NUY1NDlFUU4md2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl">
-                this battery</a>. We chose this chassis for various reasons. The four wheel drive and suspension allows 
-                the robot to drive comfortably in all terrain types. The chassis also has plenty of room for sensors, and 
-                the dimensions of the robot are ideal for our purpose. We also plan to order multiple Raspberry Pis to begin 
+                    these motors</a> and <a href="https://www.amazon.com/Powerextra-Capacity-Connectors-Compatiable-Helicopter/dp/B06WD5VRYZ/ref=sr_1_2_sspa?keywords=7.2v+rc+battery&qid=1569011675&s=toys-and-games&sr=1-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFMWkkwUE9ISDZFMVImZW5jcnlwdGVkSWQ9QTA1NTczMjBKVTBMVTFFWElOVkImZW5jcnlwdGVkQWRJZD1BMDcwNjAyODJNTEI5NUY1NDlFUU4md2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl">
+                    this battery</a>. We chose this chassis for various reasons. The four wheel drive and suspension
+                allows
+                the robot to drive comfortably in all terrain types. The chassis also has plenty of room for sensors,
+                and
+                the dimensions of the robot are ideal for our purpose. We also plan to order multiple Raspberry Pis to
+                begin
                 the prototyping and simulation processes.
             </p>
 
