@@ -52,13 +52,46 @@
         <hr class="featurette-divider" id="updates">
         <h1 class="featurette-heading">Progress Updates</h1>
         <div class="section" style="margin: 0% 5% 0% 5%">
+            <h4 class="featurette-heading">Week of November 4</h4>
+            <p class="lead">
+                Combined the ultrasonic and drive train wirings, and performed preliminary tests on auto-stop code. The
+                code read ultrasonic distance in front of the robot to detect if an obstacle was within the stopping
+                range, and used a basic state machine to accelerate, cruise, or decelerate and stop. We downloaded
+                Gazebo, but we faced challenges in running the installation for version 10 or several earlier. We plan
+                on using Gazebo to run simulations of the swarm, which will help us see and fix problems before any
+                real world testing.
+            </p>
+            <div class="row">
+                <div class="col-md-8 img-captioned" style="margin: auto">
+                    <img src="src/images/bighops.PNG" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Robot, driving over a staircase arrangement of wood</i></p>
+                </div>
+            </div>
+
+            <h4 class="featurette-heading">Week of October 28</h4>
+            <p class="lead">
+                Assembled the motor driver and installed on the robot. In addition to confirming the functionality of
+                the ultrasonic sensors wirelessly, we began testing autonomous driving code to run simple paths. Both
+                can be deployed wirelessly via the Raspi's wifi access point. We also began preliminary tests for
+                speed, ability to clear small obstacles, and battery longevity. Some major obstacles that we overcame
+                this week include difficulties with the motor controller; however, we are facing other ongoing issues,
+                such as the inability to connect to Raspis via an existing internet connection, which is resulting in a
+                more involved download and update procedure.
+            </p>
+            <div class="row">
+                <div class="col-md-8 img-captioned" style="margin: auto">
+                    <img src="src/images/bighops.PNG" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Robot, driving over a staircase arrangement of wood</i></p>
+                </div>
+            </div>
+
             <h4 class="featurette-heading">Week of October 21</h4>
             <p class="lead">
                 Found a CAD model, further tested the ultrasonic, and began setting up networking of Raspis. The CAD
                 (pictured below) will be used to model the placement of sensors, electronics, and any other
                 modificaitons we make to the initial chassis design. Additionally, the ultrasonic setup (pictured
                 below) was tested to find the range of accuracy. Graphs of error from the tests are also pictured
-                below. We used five trials at each test distance, and graphed the average percent error. Finally, 
+                below. We used five trials at each test distance, and graphed the average percent error. Finally,
                 we began setting up the robot to workstation network communication.
                 <br>
             </p>
