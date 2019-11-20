@@ -113,13 +113,13 @@
     border-color: inherit
   }
 
-  .timeline-container:nth-child(even) {
+  .timeline-container:nth-child(odd) {
     border: medium solid #FAB01D;
     border-color: #FAB01D;
     border-width: 0px
   }
 
-  .timeline-container:nth-child(odd) {
+  .timeline-container:nth-child(even) {
     border: medium solid #AF1700;
     border-color: #AF1700;
     border-width: 0px
