@@ -58,24 +58,31 @@
                 the automatic stopping of the robot, and found that at distances over 60 cm there was enough space for
                 the robot to consistently decelerate and stop before hitting the obstacle. Once we were at higher
                 distances, however, the robot would automatically stop due to single erroneous readings. To avoid this
-                issue, we implemented a running average of the ultrasonic distance readings <!--(see graphs below)-->. The
+                issue, we implemented a running average of the ultrasonic distance readings (see graphs below). The
                 window size which reduces errors while still allowing the robot to stop in time is 10 readings. Another
                 issue we encountered with the ultrasonic was avoiding less obvious obstacles - for example, the robot
                 ran into a chair and did not stop, even when stuck, because its sensor could not detect the leg. We are
                 looking into solutions for this issue in the coming week.
             </p>
-            <!--
             <div class="row">
-                <div class="col-md-6 img-captioned">
-                    <img src="src/images/jankasselectronics.jpg" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Robot stopped automatically when it detects a barrier</i></p>
+                <div class="col-md-3 img-captioned">
+                    <img src="src/images/UnscaledUSData.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Raw readings over time from the ultrasonic at constant distance</i></p>
                 </div>
-                <div class="col-md-6 img-captioned">
-                    <img src="src/images/stacked.jpg" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Electronic setup from top to bottom: motor controller, GPIO HAT, and Raspi</i></p>
+                <div class="col-md-3 img-captioned">
+                    <img src="src/images/5IntervalRA-USData.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Smoothing of readings with a running average window of 5</i></p>
+                </div>
+                <div class="col-md-3 img-captioned">
+                    <img src="src/images/10IntervalRA-USData.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Window of 10</i></p>
+                </div>
+                <div class="col-md-3 img-captioned">
+                    <img src="src/images/15IntervalRA-USData.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Window of 15</i></p>
                 </div>
             </div>
--->
+
             <h4 class="featurette-heading">Week of November 4</h4>
             <p class="lead">
                 Combined the ultrasonic and drive train wirings, and performed preliminary tests on auto-stop code. The
