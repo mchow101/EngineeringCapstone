@@ -52,6 +52,30 @@
         <hr class="featurette-divider" id="updates">
         <h1 class="featurette-heading">Progress Updates</h1>
         <div class="section" style="margin: 0% 5% 0% 5%">
+            <h4 class="featurette-heading">Week of November 11</h4>
+            <p class="lead">
+                Began implementing more advanced control into the code. We spent some time testing the consistency of
+                the automatic stopping of the robot, and found that at distances over 60 cm there was enough space for
+                the robot to consistently decelerate and stop before hitting the obstacle. Once we were at higher
+                distances, however, the robot would automatically stop due to single erroneous readings. To avoid this
+                issue, we implemented a running average of the ultrasonic distance readings <!--(see graphs below)-->. The
+                window size which reduces errors while still allowing the robot to stop in time is 10 readings. Another
+                issue we encountered with the ultrasonic was avoiding less obvious obstacles - for example, the robot
+                ran into a chair and did not stop, even when stuck, because its sensor could not detect the leg. We are
+                looking into solutions for this issue in the coming week.
+            </p>
+            <!--
+            <div class="row">
+                <div class="col-md-6 img-captioned">
+                    <img src="src/images/jankasselectronics.jpg" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Robot stopped automatically when it detects a barrier</i></p>
+                </div>
+                <div class="col-md-6 img-captioned">
+                    <img src="src/images/stacked.jpg" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Electronic setup from top to bottom: motor controller, GPIO HAT, and Raspi</i></p>
+                </div>
+            </div>
+-->
             <h4 class="featurette-heading">Week of November 4</h4>
             <p class="lead">
                 Combined the ultrasonic and drive train wirings, and performed preliminary tests on auto-stop code. The
@@ -247,6 +271,7 @@
         <hr class="featurette-divider" id="timeline">
         <h1 class="featurette-heading">Upcoming Goals</h1>
     </div>
+    <!--
     <div class="timeline">
         <div class="timeline-container timeline-right">
             <div class="timeline-content">
@@ -258,73 +283,74 @@
                 </ul>
             </div>
         </div>
-        <div class="timeline-container timeline-left">
-            <div class="timeline-content">
-                <h2 class="featurette-heading">November</h2>
-                <ul class="lead">
-                    <li>Create an improved design of the robot</li>
-                    <li>Begin testing communications between robots </li>
-                    <li>Create an electronic simulation of the mapping algorithm</li>
-                </ul>
-            </div>
+    -->
+    <div class="timeline-container timeline-left">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">November</h2>
+            <ul class="lead">
+                <li>Create an improved design of the robot</li>
+                <li>Begin testing communications between robots </li>
+                <li>Create an electronic simulation of the mapping algorithm</li>
+            </ul>
         </div>
-        <div class="timeline-container timeline-right">
-            <div class="timeline-content">
-                <h2 class="featurette-heading">December</h2>
-                <ul class="lead">
-                    <li>Make all necessary changes to the robot design </li>
-                    <li>Program basic swarm movement</li>
-                    <li>Prepare a formal progress update</li>
-                </ul>
-            </div>
+    </div>
+    <div class="timeline-container timeline-right">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">December</h2>
+            <ul class="lead">
+                <li>Make all necessary changes to the robot design </li>
+                <li>Program basic swarm movement</li>
+                <li>Prepare a formal progress update</li>
+            </ul>
         </div>
-        <div class="timeline-container timeline-left">
-            <div class="timeline-content">
-                <h2 class="featurette-heading">January</h2>
-                <ul class="lead">
-                    <li>Begin building the remainder of the swarm</li>
-                    <li>Program more complex functions such as wall following and a simple AI</li>
-                </ul>
-            </div>
+    </div>
+    <div class="timeline-container timeline-left">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">January</h2>
+            <ul class="lead">
+                <li>Begin building the remainder of the swarm</li>
+                <li>Program more complex functions such as wall following and a simple AI</li>
+            </ul>
         </div>
-        <div class="timeline-container timeline-right">
-            <div class="timeline-content">
-                <h2 class="featurette-heading">February</h2>
-                <ul class="lead">
-                    <li>Finish building the robot swarm</li>
-                    <li>Update mapping algorithm to fix any potential issues</li>
-                </ul>
-            </div>
+    </div>
+    <div class="timeline-container timeline-right">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">February</h2>
+            <ul class="lead">
+                <li>Finish building the robot swarm</li>
+                <li>Update mapping algorithm to fix any potential issues</li>
+            </ul>
         </div>
-        <div class="timeline-container timeline-left">
-            <div class="timeline-content">
-                <h2 class="featurette-heading">March</h2>
-                <ul class="lead">
-                    <li>Test the functions of the robot in adverse conditions and positions</li>
-                    <li>Develop a console for swarm to view the robots and their status in real time</li>
-                    <li>Prepare a formal progress update</li>
-                </ul>
-            </div>
+    </div>
+    <div class="timeline-container timeline-left">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">March</h2>
+            <ul class="lead">
+                <li>Test the functions of the robot in adverse conditions and positions</li>
+                <li>Develop a console for swarm to view the robots and their status in real time</li>
+                <li>Prepare a formal progress update</li>
+            </ul>
         </div>
-        <div class="timeline-container timeline-right">
-            <div class="timeline-content">
-                <h2 class="featurette-heading">April</h2>
-                <ul class="lead">
-                    <li>Implement finalized mapping algorithm</li>
-                    <li>Polish console and add functions such as global override commands</li>
-                    <li>Begin final written report</li>
-                </ul>
-            </div>
+    </div>
+    <div class="timeline-container timeline-right">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">April</h2>
+            <ul class="lead">
+                <li>Implement finalized mapping algorithm</li>
+                <li>Polish console and add functions such as global override commands</li>
+                <li>Begin final written report</li>
+            </ul>
         </div>
-        <div class="timeline-container timeline-left">
-            <div class="timeline-content">
-                <h2 class="featurette-heading">May</h2>
-                <ul class="lead">
-                    <li>Prepare final written report</li>
-                    <li>Oral presentation and demonstration</li>
-                </ul>
-            </div>
+    </div>
+    <div class="timeline-container timeline-left">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">May</h2>
+            <ul class="lead">
+                <li>Prepare final written report</li>
+                <li>Oral presentation and demonstration</li>
+            </ul>
         </div>
+    </div>
     </div>
     <p class="lead" style="margin-left: 1%">
         <i><a href="swarm_robotics.html#top">Back to Top</a></i>
