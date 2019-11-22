@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- Bootstrap -->
+    <link href="${lph}/../bootstrap/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="${lph}/../css/main.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+        <a class="navbar-brand" href="${lph}/">Engineering Capstone</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="${lph}/swarm" class="nav-link active">Swarm Robotics</a>
+                </li>
+                <li class="nav-item">
+                    <a href="${lph}/contact" class="nav-link active">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="section">
+        <h1 class="featurette-heading">Swarm Robotics Mapping</h1>
+        <p class="lead">
+            <i>Jump to:
+                <a href="${lph}/../swarm#updates">Latest Updates</a> |
+                <a href="${lph}/../swarm#timeline">Timeline of Progress</a>
+                <hr class="featurette-divider">
+            </i> </p>
+        <p class="lead">
+            Swarm robotics is the use of a large number of robots to complete a task which a single robot could
+            not. In our design, the robots have three major functions: moving, communicating, and sensing. Using these
+            three abilities in conjunction, we aim to use the swarm to map out the layout of our high school's campus, an 
+            application which potentially can be expanded for exploration or disaster relief.
+        </p>
+
+        <h4 class="featurette-heading">Formal Research Question</h4>
+        <p class="lead">
+            How can we use a fundamental understanding of both robotic and swarm technologies to create a map of all
+            accessible areas?
+        </p>
+        <h4 class="featurette-heading">Contact</h4>
+        <p class="lead">
+            For more information, contact
+            <a href="mailto:mitalichowdhury00@gmail.com">Mitali Chowdhury</a> or
+            <a href="mailto:tyler.smithtro@gmail.com">Tyler Smithtro</a>. Learn more about them <a href="contact.html">here</a>.
+        </p>
+        <hr class="featurette-divider" id="updates">
+        <h1 class="featurette-heading">Progress Updates</h1>
+        <div class="section" style="margin: 0% 5% 0% 5%">
+            <h4 class="featurette-heading">Week of November 11</h4>
+            <p class="lead">
+                Began implementing more advanced control into the code. We spent some time testing the consistency of
+                the automatic stopping of the robot, and found that at distances over 60 cm there was enough space for
+                the robot to consistently decelerate and stop before hitting the obstacle. Once we were at higher
+                distances, however, the robot would automatically stop due to single erroneous readings. To avoid this
+                issue, we implemented a running average of the ultrasonic distance readings (see graphs below). The
+                window size which reduces errors while still allowing the robot to stop in time is 10 readings. Another
+                issue we encountered with the ultrasonic was avoiding less obvious obstacles - for example, the robot
+                ran into a chair and did not stop, even when stuck, because its sensor could not detect the leg. We are
+                looking into solutions for this issue in the coming week.
+            </p>
+            <div class="row">
+                <div class="col-md-3 img-captioned">
+                    <img src="${lph}/../images/UnscaledUSData.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Raw readings over time from the ultrasonic at constant distance</i></p>
+                </div>
+                <div class="col-md-3 img-captioned">
+                    <img src="${lph}/../images/5IntervalRA-USData.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Smoothing of readings with a running average window of 5</i></p>
+                </div>
+                <div class="col-md-3 img-captioned">
+                    <img src="${lph}/../images/10IntervalRA-USData.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Window of 10</i></p>
+                </div>
+                <div class="col-md-3 img-captioned">
+                    <img src="${lph}/../images/15IntervalRA-USData.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Window of 15</i></p>
+                </div>
+            </div>
+
+            <h4 class="featurette-heading">Week of November 4</h4>
+            <p class="lead">
+                Combined the ultrasonic and drive train wirings, and performed preliminary tests on auto-stop code. The
+                code read ultrasonic distance in front of the robot to detect if an obstacle was within the stopping
+                range, and used a basic state machine to accelerate, cruise, or decelerate and stop. Additionally, we
+                downloaded Gazebo, but we faced challenges in running the installation for version 10 or several
+                earlier. We plan on using Gazebo to run simulations of the swarm, which will help us see and fix
+                problems before any real world testing.
+            </p>
+            <div class="row">
+                <div class="col-md-6 img-captioned">
+                    <img src="${lph}/../images/jankasselectronics.jpg" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Robot stopped automatically when it detects a barrier</i></p>
+                </div>
+                <div class="col-md-6 img-captioned">
+                    <img src="${lph}/../images/stacked.jpg" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Electronic setup from top to bottom: motor controller, GPIO HAT, and Raspi</i></p>
+                </div>
+            </div>
+
+            <h4 class="featurette-heading">Week of October 28</h4>
+            <p class="lead">
+                Assembled the motor driver and installed on the robot. In addition to confirming the functionality of
+                the ultrasonic sensors wirelessly, we began testing autonomous driving code to run simple paths. Both
+                can be deployed wirelessly via the Raspi's wifi access point. We also began preliminary tests for
+                speed, ability to clear small obstacles, and battery longevity. Some major obstacles that we overcame
+                this week include difficulties with the motor controller; however, we are facing other ongoing issues,
+                such as the inability to connect to Raspis via an existing internet connection, which is resulting in a
+                more involved download and update procedure.
+            </p>
+            <div class="row">
+                <div class="col-md-8 img-captioned" style="margin: auto">
+                    <img src="${lph}/../images/bighops.PNG" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Robot, driving over a staircase arrangement of wood</i></p>
+                </div>
+            </div>
+
+            <h4 class="featurette-heading">Week of October 21</h4>
+            <p class="lead">
+                Found a CAD model, further tested the ultrasonic, and began setting up networking of Raspis. The CAD
+                (pictured below) will be used to model the placement of sensors, electronics, and any other
+                modificaitons we make to the initial chassis design. Additionally, the ultrasonic setup (pictured
+                below) was tested to find the range of accuracy. Graphs of error from the tests are also pictured
+                below. We used five trials at each test distance, and graphed the average percent error. Finally,
+                we began setting up the robot to workstation network communication.
+            </p>
+            <div class="row">
+                <div class="col-md-8 img-captioned" style="margin: auto">
+                    <img src="${lph}/../images/timmyangle.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Chassis CAD</i></p>
+                </div>
+                <div class="col-md-6 img-captioned">
+                    <img src="${lph}/../images/timmytop.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Chassis CAD, top view</i></p>
+                </div>
+                <div class="col-md-6 img-captioned">
+                    <img src="${lph}/../images/timmyfront.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Chassis CAD, front view</i></p>
+                </div>
+                <div class="col-md-6 img-captioned">
+                    <img src="${lph}/../images/ultrasonic.jpg" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Ultrasonic Circuit</i></p>
+                </div>
+                <div class="col-md-6 img-captioned">
+                    <img src="${lph}/../images/ultrasonicgraph.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Average Error of Measurements</i></p>
+                </div>
+            </div>
+            <h4 class="featurette-heading">Week of October 14</h4>
+            <p class="lead">
+                Worked on CAD model and developed program for ultrasonic distance sensing. We created a basic outline
+                of the main frame and drive train in order to map out the location of future sensors and electronics.
+                The circuit and program that we began setting up last week was completed as well, using a HAT device to
+                easily connect the circuit with the Raspberry Pi. The initial tests of readings were reasonable in the
+                10 - 100 cm range, but we will test the range of accuracy more thoroughly in the upcoming week. In
+                addition, we found some more potential sources of funding, including the Pacific Grove Alumni
+                Association, Lockheed Martin, Pebble Beach Foundation, and Chevron: Fuel Your School.
+            </p>
+            <h4 class="featurette-heading">Week of October 7</h4>
+            <p class="lead">
+                Received our order of additional Raspberry Pi 3Bs for future robots,
+                our first robot chassis (wild thumper 4WD chassis with suspension - pictured below),
+                batteries to power the robots (7.2v. 3000mvh) and an HR-SR04 ultrasonic sensor (pictured below)
+                which we will begin testing next week. We were working on imaging Raspberry Pis with Raspbian, but will
+                most likely use <a href="https://downloads.ubiquityrobotics.com/">Ubuntu with ROS Kinetic</a> to
+                facilitate the use of that system. Additionally, we began building the
+                <a href="https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/">
+                    circuit for the ultrasonic</a>,
+                which will be driving the majority of the object detection in our system. We also started
+                applying to additional grants in the local area in order to secure extra funding.
+                Finally, we ordered the motor controller for the robot and plan on testing full motion and
+                functionality into next week.
+            </p>
+            <div class="row">
+                <div class="col-md-5 img-captioned">
+                    <img src="${lph}/../images/timmy.jpg" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Wild Thumper Chassis</i></p>
+                </div>
+                <div class="col-md-5 img-captioned">
+                    <img src="${lph}/../images/googlyeyes.jpg" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Ultrasonic Sensor</i></p>
+                </div>
+            </div>
+
+            <h4 class="featurette-heading">Week of September 30</h4>
+            <p class="lead">
+                Began setting up Raspberry Pis for prototyping and swarm simulations. This involved downloading and
+                installing <a href="https://www.raspberrypi.org/downloads/noobs/">Raspbian through NOOBS</a>. We
+                were only able to successfully boot up one computer at this time, most likely due to the SD cards used
+                to install Raspbian on the other machines.
+            </p>
+
+            <h4 class="featurette-heading">Week of September 23</h4>
+            <p class="lead">
+                Researched software for swarm simulation and controlling robots. Based on previous research, the
+                primary operation system to control robots, outside of writing our own software, is the <a href="http://wiki.ros.org/ROS/Introduction">Robot
+                    Operating System (ROS)</a>. An open source software, ROS seems to have a quite extensive
+                community
+                and codebase to work from. There are a few projects by other users which involve swarm
+                communications,
+                which provides a nice starting point to guide our algorithms. In terms of simulations, we looked at
+                a few different options including <a href="http://playerstage.sourceforge.net/doc/Stage-3.2.1/index.html">Stage</a>,
+                a simulator for swarm robotics, and <a href="https://www.argos-sim.info/concepts.php">ARGoS</a>, a
+                large-scale robot simulator. Both seem like accurate and useful simulators, but our final decision
+                is to use <a href="http://gazebosim.org/">Gazebo</a> due to its close ties with the ROS community.
+                Gazebo will allow us to visualize the interactions within the robot swarm and develop an algorithm for
+                the mapping algorithm before building a physical swarm, and can also allow us to predict how the
+                algorithm will scale up if more robot were added to the swarm.
+            </p>
+
+            <h4 class="featurette-heading">Week of September 16</h4>
+            <p class="lead">
+                Finished <a href="https://docs.google.com/document/d/1qvDgJri6-DRLp8xI9HlUJ1yOsFxDKFsRWZAjstPOQb0/edit?usp=sharing">formal
+                    research proposal</a>. Additionally, we continued to look for a robot kit and corresponding
+                electronics.
+                The kit we will prototype with is the <a href="https://www.pololu.com/product/1567">Wild Thumper</a>
+                chassis, with <a href="http://www.dagurobot.com/DAGU_Wild_Thumper_encoders_RS003_Enco_with_motor_75_1?search=wild%20thumper&category_id=0">
+                    these motors</a> and <a href="https://www.amazon.com/Powerextra-Capacity-Connectors-Compatiable-Helicopter/dp/B06WD5VRYZ/ref=sr_1_2_sspa?keywords=7.2v+rc+battery&qid=1569011675&s=toys-and-games&sr=1-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFMWkkwUE9ISDZFMVImZW5jcnlwdGVkSWQ9QTA1NTczMjBKVTBMVTFFWElOVkImZW5jcnlwdGVkQWRJZD1BMDcwNjAyODJNTEI5NUY1NDlFUU4md2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl">
+                    this battery</a>. We chose this chassis for various reasons. The four wheel drive and
+                suspension allows the robot to drive comfortably in all terrain types. The chassis also has plenty of
+                room for sensors, and the dimensions of the robot are ideal for our purpose. We also plan to order
+                multiple Raspberry Pis to begin the prototyping and simulation processes.
+            </p>
+
+            <h4 class="featurette-heading">Week of September 9</h4>
+            <p class="lead">
+                Modified the future work timeline in order to put greater importance on the swarm rather than
+                individual robot design. Also, we decided to purchase a robot from a kit, instead of trying to
+                design and manufacture all components of the robots. Some of the designs that we are considering
+                include the <a href="https://www.robotshop.com/en/dfrobotshop-rover-tracked-robot-basic-kit.html">
+                    DFRobotShop Rover V2 - Arduino Compatible Tracked Robot (Basic Kit)</a>,
+                the <a href="https://www.dexterindustries.com/product/gopigo-beginner-starter-kit/">
+                    GoPiGo Beginner Starter Kit</a>, and
+                the <a href="https://www.robotshop.com/en/picar-s-raspberry-pi-3-2b-smart-car-kit.html">
+                    PiCar-S Raspberry Pi 3/2/B+ Smart Car Kit</a>.
+                We also have prepared a rough draft for our formal research proposal, which will be submitted by
+                September 20. Our next steps are to begin testing communications between Raspberry Pi units, which
+                should help us form the basis of cross-robot communications in the swarm.
+            </p>
+
+            <h4 class="featurette-heading">Week of August 26</h4>
+            <p class="lead">
+                Designed and published website to publish our progress. In addition, we began to
+                draft our formal research proposal.
+            </p>
+
+            <h4 class="featurette-heading">Week of August 19</h4>
+            <p class="lead">
+                Submitted a grant application to PG Pride. If awarded, this grant will fund the majority of our
+                research project, including
+                materials costs for building up to 12 robots as well as a central Raspberry Pi module.
+            </p>
+
+            <h4 class="featurette-heading">Week of August 12</h4>
+            <p class="lead">
+                Developed specific research question and individual robot constraints for the swarm. We chose to
+                try and create a map using swarm technology. To test and evaluate the success of our swarm, we will be
+                aiming to map our high school's campus.
+            </p>
+
+            <h4 class="featurette-heading">Week of August 5</h4>
+            <p class="lead">
+                Chose broad research topic of swarm robotics to pursue for our research project. We also outlined
+                general deadlines and deliverables
+                to be expected throughout the year.
+                <br><br>
+                <I><a href="${lph}/../swarm">Back to Top</a></I>
+            </p>
+        </div>
+        <hr class="featurette-divider" id="timeline">
+        <h1 class="featurette-heading">Upcoming Goals</h1>
+    </div>
+    <div class="timeline">
+    <div class="timeline-container timeline-left">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">November</h2>
+            <ul class="lead">
+                <li>Create an improved design of the robot</li>
+                <li>Begin testing communications between robots </li>
+                <li>Create an electronic simulation of the mapping algorithm</li>
+            </ul>
+        </div>
+    </div>
+    <div class="timeline-container timeline-right">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">December</h2>
+            <ul class="lead">
+                <li>Make all necessary changes to the robot design </li>
+                <li>Program basic swarm movement</li>
+                <li>Prepare a formal progress update</li>
+            </ul>
+        </div>
+    </div>
+    <div class="timeline-container timeline-left">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">January</h2>
+            <ul class="lead">
+                <li>Begin building the remainder of the swarm</li>
+                <li>Program more complex functions such as wall following and a simple AI</li>
+            </ul>
+        </div>
+    </div>
+    <div class="timeline-container timeline-right">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">February</h2>
+            <ul class="lead">
+                <li>Finish building the robot swarm</li>
+                <li>Update mapping algorithm to fix any potential issues</li>
+            </ul>
+        </div>
+    </div>
+    <div class="timeline-container timeline-left">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">March</h2>
+            <ul class="lead">
+                <li>Test the functions of the robot in adverse conditions and positions</li>
+                <li>Develop a console for swarm to view the robots and their status in real time</li>
+                <li>Prepare a formal progress update</li>
+            </ul>
+        </div>
+    </div>
+    <div class="timeline-container timeline-right">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">April</h2>
+            <ul class="lead">
+                <li>Implement finalized mapping algorithm</li>
+                <li>Polish console and add functions such as global override commands</li>
+                <li>Begin final written report</li>
+            </ul>
+        </div>
+    </div>
+    <div class="timeline-container timeline-left">
+        <div class="timeline-content">
+            <h2 class="featurette-heading">May</h2>
+            <ul class="lead">
+                <li>Prepare final written report</li>
+                <li>Oral presentation and demonstration</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <p class="lead" style="margin-left: 1%">
+        <i><a href="${lph}/../swarm#top">Back to Top</a></i>
+    </p>
+    <hr class="featurette-divider">
+
+</body>
