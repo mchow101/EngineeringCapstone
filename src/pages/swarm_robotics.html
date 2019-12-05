@@ -37,7 +37,8 @@
         <p class="lead">
             Swarm robotics is the use of a large number of robots to complete a task which a single robot could
             not. In our design, the robots have three major functions: moving, communicating, and sensing. Using these
-            three abilities in conjunction, we aim to use the swarm to map out the layout of our high school's campus, an 
+            three abilities in conjunction, we aim to use the swarm to map out the layout of our high school's campus,
+            an
             application which potentially can be expanded for exploration or disaster relief.
         </p>
 
@@ -55,6 +56,26 @@
         <hr class="featurette-divider" id="updates">
         <h1 class="featurette-heading">Progress Updates</h1>
         <div class="section" style="margin: 0% 5% 0% 5%">
+            <h4 class="featurette-heading">Week of November 25</h4>
+            <p class="lead">
+                Attempted to set up basic networking. We decided to try an ad hoc network which would allow simple peer
+                to peer communication, and followed a <a href="https://wiki.debian.org/WiFi/AdHoc">tutorial</a> to try
+                establishing a connection between nodes. While the initial setup went smoothly, the two Raspis were
+                unable to connect with each other. We also attempted to install Gazebo again on a Raspi, but
+                encountered issues with the installation. We plan to try running Gazebo on a VM next week, and will
+                look into troubleshooting the network connections.
+            </p>
+
+            <h4 class="featurette-heading">Week of November 18</h4>
+            <p class="lead">
+                Faced several issues surrounding limit switches this week. We thought that limit switches would help
+                with object avoidance in case the ultrasonic reading was too slow. After wiring the limit switch, the
+                triggered state would give consistent readings, but the untriggered state would oscillate in an
+                unpredictable pattern between the two values. While we attempted to switch between normally closed and 
+                normally open settings, and even try a different limit switch, we could not solve the problem. We will 
+                look into troubleshooting this problem and hopefully implement them into our final design.
+            </p>
+
             <h4 class="featurette-heading">Week of November 11</h4>
             <p class="lead">
                 Began implementing more advanced control into the code. We spent some time testing the consistency of
@@ -279,73 +300,73 @@
         <h1 class="featurette-heading">Upcoming Goals</h1>
     </div>
     <div class="timeline">
-    <div class="timeline-container timeline-left">
-        <div class="timeline-content">
-            <h2 class="featurette-heading">November</h2>
-            <ul class="lead">
-                <li>Create an improved design of the robot</li>
-                <li>Begin testing communications between robots </li>
-                <li>Create an electronic simulation of the mapping algorithm</li>
-            </ul>
+        <div class="timeline-container timeline-left">
+            <div class="timeline-content">
+                <h2 class="featurette-heading">November</h2>
+                <ul class="lead">
+                    <li>Create an improved design of the robot</li>
+                    <li>Begin testing communications between robots </li>
+                    <li>Create an electronic simulation of the mapping algorithm</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="timeline-container timeline-right">
-        <div class="timeline-content">
-            <h2 class="featurette-heading">December</h2>
-            <ul class="lead">
-                <li>Make all necessary changes to the robot design </li>
-                <li>Program basic swarm movement</li>
-                <li>Prepare a formal progress update</li>
-            </ul>
+        <div class="timeline-container timeline-right">
+            <div class="timeline-content">
+                <h2 class="featurette-heading">December</h2>
+                <ul class="lead">
+                    <li>Make all necessary changes to the robot design </li>
+                    <li>Program basic swarm movement</li>
+                    <li>Prepare a formal progress update</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="timeline-container timeline-left">
-        <div class="timeline-content">
-            <h2 class="featurette-heading">January</h2>
-            <ul class="lead">
-                <li>Begin building the remainder of the swarm</li>
-                <li>Program more complex functions such as wall following and a simple AI</li>
-            </ul>
+        <div class="timeline-container timeline-left">
+            <div class="timeline-content">
+                <h2 class="featurette-heading">January</h2>
+                <ul class="lead">
+                    <li>Begin building the remainder of the swarm</li>
+                    <li>Program more complex functions such as wall following and a simple AI</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="timeline-container timeline-right">
-        <div class="timeline-content">
-            <h2 class="featurette-heading">February</h2>
-            <ul class="lead">
-                <li>Finish building the robot swarm</li>
-                <li>Update mapping algorithm to fix any potential issues</li>
-            </ul>
+        <div class="timeline-container timeline-right">
+            <div class="timeline-content">
+                <h2 class="featurette-heading">February</h2>
+                <ul class="lead">
+                    <li>Finish building the robot swarm</li>
+                    <li>Update mapping algorithm to fix any potential issues</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="timeline-container timeline-left">
-        <div class="timeline-content">
-            <h2 class="featurette-heading">March</h2>
-            <ul class="lead">
-                <li>Test the functions of the robot in adverse conditions and positions</li>
-                <li>Develop a console for swarm to view the robots and their status in real time</li>
-                <li>Prepare a formal progress update</li>
-            </ul>
+        <div class="timeline-container timeline-left">
+            <div class="timeline-content">
+                <h2 class="featurette-heading">March</h2>
+                <ul class="lead">
+                    <li>Test the functions of the robot in adverse conditions and positions</li>
+                    <li>Develop a console for swarm to view the robots and their status in real time</li>
+                    <li>Prepare a formal progress update</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="timeline-container timeline-right">
-        <div class="timeline-content">
-            <h2 class="featurette-heading">April</h2>
-            <ul class="lead">
-                <li>Implement finalized mapping algorithm</li>
-                <li>Polish console and add functions such as global override commands</li>
-                <li>Begin final written report</li>
-            </ul>
+        <div class="timeline-container timeline-right">
+            <div class="timeline-content">
+                <h2 class="featurette-heading">April</h2>
+                <ul class="lead">
+                    <li>Implement finalized mapping algorithm</li>
+                    <li>Polish console and add functions such as global override commands</li>
+                    <li>Begin final written report</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="timeline-container timeline-left">
-        <div class="timeline-content">
-            <h2 class="featurette-heading">May</h2>
-            <ul class="lead">
-                <li>Prepare final written report</li>
-                <li>Oral presentation and demonstration</li>
-            </ul>
+        <div class="timeline-container timeline-left">
+            <div class="timeline-content">
+                <h2 class="featurette-heading">May</h2>
+                <ul class="lead">
+                    <li>Prepare final written report</li>
+                    <li>Oral presentation and demonstration</li>
+                </ul>
+            </div>
         </div>
-    </div>
     </div>
     <p class="lead" style="margin-left: 1%">
         <i><a href="${lph}/../swarm#top">Back to Top</a></i>
