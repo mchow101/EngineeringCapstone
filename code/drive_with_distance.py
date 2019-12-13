@@ -9,7 +9,6 @@ from __future__ import print_function
 import time
 from dual_mc33926_rpi import motors, MAX_SPEED
 import RPi.GPIO as GPIO
-import time
 
 FORWARD_SPEED = MAX_SPEED / 2
 REVERSE_SPEED = MAX_SPEED / 2
