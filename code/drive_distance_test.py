@@ -4,6 +4,15 @@ import RPi.GPIO as GPIO
 import ultrasonic_distance
 import running_average
 
+# constants
+
+trig1 = 17
+echo1 = 27
+trig2 = 9
+echo2 = 11
+trig3 = 19
+echo3 = 26
+
 FORWARD_SPEED = MAX_SPEED * 3 / 4
 REVERSE_SPEED = MAX_SPEED * 3 / 4
 ACCELERATE = list(range(100, FORWARD_SPEED, 10)) + [FORWARD_SPEED]
@@ -24,9 +33,12 @@ if __name__ == '__main__':
 	speed = 0
 	lst = [MIN_DIST] * WINDOW_LENGTH
 	running_average.average_init(lst)
+	init(trig1, echo1)
+	init(trig2, echo2)
+	init(trig3, echo3)
         while True:
 #	    dist = ultrasonic_distance.distance()
-            dist = running_average.update(ultrasonic_distance.distance())
+            dist = running_average.update(ultrasonic_distance.distance(trig1, echo1))
             #stop if too close
             if dist < MIN_DIST and DEC == False:
                 DEC = True

@@ -4,10 +4,6 @@ import time
 
 #set up GPIO
 GPIO.setmode(GPIO.BCM)
-#GPIO_TRIG = 17
-#GPIO_ECHO = 27
-#GPIO_TRIG = 9
-#GPIO_ECHO = 11
 
 def init(GPIO_TRIG, GPIO_ECHO):
         GPIO.setup(GPIO_TRIG, GPIO.OUT)
@@ -40,16 +36,22 @@ if __name__ == '__main__':
         echo1 = 27
         trig2 = 9
         echo2 = 11
+	trig3 = 19
+	echo3 = 26
 	try:
             init(trig1, echo1)
             init(trig2, echo2)
+	    init(trig3, echo3)
             dist_sum = 0
             while True:
                 dist1 = distance(trig1, echo1)
                 dist2 = distance(trig2, echo2)
+		dist3 = distance(trig3, echo3)
                 time.sleep(1)
                 print ("Distance 1 = %.3f cm" % dist1)
                 print ("Distance 2 = %.3f cm" % dist2)
+		print ("Distance 3 = %.3f cm" % dist3)
+		print ("")
         except KeyboardInterrupt:
             print ("Measurement stopped")
             GPIO.cleanup()
