@@ -33,8 +33,8 @@ WALL_DIST = 45
 if __name__ == '__main__':
     try:
 	print ("Starting")
-        motors.enable()
-        motors.setSpeeds(0, 0)
+    motors.enable()
+    motors.setSpeeds(0, 0)
 	Lspeed = 0
 	Rspeed = 0
 	lst = [MIN_DIST] * WINDOW_LENGTH
@@ -44,35 +44,35 @@ if __name__ == '__main__':
 	ultrasonic_distance.init(trig3, echo3)
         while True:
             dist = running_average.update(ultrasonic_distance.distance(trig1, echo1))
-	    left = running_average.update(ultrasonic_distance.distance(trig2, echo2))
-	    right = running_average.update(ultrasonic_distance.distance(trig3, echo3))
+	        left = running_average.update(ultrasonic_distance.distance(trig2, echo2))
+	        right = running_average.update(ultrasonic_distance.distance(trig3, echo3))
             #turn if too close
             if dist < MIN_DIST and TURNING == False:
-		print ("TOO CLOSE")
+                print ("TOO CLOSE")
                 TURNING = True
             elif TURNING == True and (left <= WALL_DIST or right <= WALL_DIST):
                 TURNING = False
                 ACC = True
             elif TURNING == True:
                 if Rspeed < Lspeed:
-                        Rtarget = 0
-                        Ltarget = FORWARD_SPEED
+                    Rtarget = 0
+                    Ltarget = FORWARD_SPEED
                 else:
-                        Rtarget = FORWARD_SPEED
-                        Ltarget = 0
-	    # start if in range
-	    elif dist >= MIN_DIST and ACC == False:
-		ACC = True
+                    Rtarget = FORWARD_SPEED
+                    Ltarget = 0
+            # start if in range
+            elif dist >= MIN_DIST and ACC == False:
+                ACC = True
                 DEC = False
             # reached max speed
             elif ACC == True and (Lspeed >= FORWARD_SPEED or Rspeed >= FORWARD_SPEED):
-		print ("CRUISING FORWARD")
+                print ("CRUISING FORWARD")
                 ACC = False
                 Ltarget = FORWARD_SPEED
                 Rtarget = FORWARD_SPEED
             # stopping
             elif DEC == True and (Lspeed <= 0 or Rspeed <= 0):
-		print ("STOPPING")
+                print ("STOPPING")
                 DEC = False
                 STOP = True
                 Ltarget = 0
@@ -80,30 +80,50 @@ if __name__ == '__main__':
             # stopped
             elif STOP == True and (Lspeed == 0 or Rspeed == 0):
                 print ("STOPPED")
-		STOP = False
+                STOP = False
                 Ltarget = 0
-                Ltarget = 0
+                Rtarget = 0
             # accelerate
             elif ACC == True:
-		print ("ACCEERLERLER")
+                print ("ACCEERLERLER")
                 Ltarget = FORWARD_SPEED
                 Rtarget = FORWARD_SPEED
             # decelerate
             elif DEC == True:
-		print ("DECELERKERLKEJR")
+            print ("DECELERKERLKEJR")
                 Ltarget = -FORWARD_SPEED
                 Rtarget = -FORWARD_SPEED
-            # cruise
-	    elif DEC == False and ACC == False and STOP == False and (Rspeed > 0 or Lspeed > 0):
-		print ("ACTUALLY CRUISING")
-		Ltarget = FORWARD_SPEED
-		Rtarget = FORWARD_SPEED
+                # cruise
+            elif DEC == False and ACC == False and STOP == False and (Rspeed > 0 or Lspeed > 0):
+                print ("ACTUALLY CRUISING")
+                Ltarget = FORWARD_SPEED
+                Rtarget = FORWARD_SPEED
             else:
-		print ("E STOPPED... something's wrong")
+                print ("E STOPPED... something's wrong")
                 Lspeed = 0
-				Rspeed = 0
+                Rspeed = 0
 
-		if #FINISH THIS
+            #set right speed
+            if Rtarget == 0:
+                if Rspeed < Rtarget:
+                    Rspeed = Rspeed + STOP_VALUE
+                elif Rspeed > Rtarget:
+                    Rspeed = Rspeed - STOP_VALUE
+            elif Rspeed < Rtarget:
+                Rspeed = Rspeed + ACC_VALUE
+            elif Rspeed > Rtarget:
+                Rspeed = Rspeed - ACC_VALUE
+
+            # set left speed
+            if Ltarget == 0:
+                if Lspeed < Ltarget:
+                    Lspeed = Lspeed + STOP_VALUE
+                elif Lspeed > Ltarget:
+                    Lspeed = Lspeed - STOP_VALUE
+            elif Lspeed < Ltarget:
+                Lspeed = Lspeed + ACC_VALUE
+            elif Lspeed > Ltarget:
+                Lspeed = Lspeed - ACC_VALUE
 
             # set speed
             motors.setSpeeds(-Lspeed, Rspeed)
