@@ -1,16 +1,13 @@
-import socket
-
-HOST = ''  # Standard loopback interface address (localhost)
-PORT = 65432        # Port to listen on (non-privileged ports are > 1023)
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((HOST, PORT))
-    s.listen()
-    conn, addr = s.accept()
-    with conn:
-        print('Connected by', addr)
-        while True:
-            data = conn.recv(1024)
-            if not data:
-                break
-            conn.sendall(data)
+from socket import *
+host = "192.168.43.64"
+print (host)
+port = 7777
+s = socket(AF_INET, SOCK_STREAM)
+print ("Socket Made")
+s.bind(("0.0.0.0", port))
+print ("Socket Bound")
+s.listen(5)
+print ("Listening for connections...")
+q,addr = s.accept()
+data = "Call me maybe"
+q.send(bytes(data, "utf-8"))
