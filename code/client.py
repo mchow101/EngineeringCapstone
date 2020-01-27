@@ -1,4 +1,5 @@
-host = "192.168.43.59"
+from socket import *
+host = "172.20.27.97"
 print (host)
 port=7777
 s=socket(AF_INET, SOCK_STREAM)

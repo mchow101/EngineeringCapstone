@@ -1,5 +1,9 @@
 from socket import *
-host = "192.168.43.64"
+import os
+host = "172.20.27.99"
+os.system('sudo ifconfig wlan0 down')
+os.system('sudo ifconfig wlan0 ' + host)
+os.system('sudo ifconfig wlan0 up')
 print (host)
 port = 7777
 s = socket(AF_INET, SOCK_STREAM)
