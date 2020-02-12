@@ -35,13 +35,16 @@ if __name__ == '__main__':
 	lst = [MIN_DIST] * WINDOW_LENGTH
 	running_average.average_init(lst)
 	ultrasonic_distance.init(trig1, echo1)
-#	ultrasonic_distance.init(trig2, echo2)
-#	ultrasonic_distance.init(trig3, echo3)
+	ultrasonic_distance.init(trig2, echo2)
+	ultrasonic_distance.init(trig3, echo3)
         while True:
 #	    dist = ultrasonic_distance.distance(trig1, echo1)
+	    time.sleep(.25)
             dist = running_average.update(ultrasonic_distance.distance(trig1, echo1))
-#	    left = running_average.update(ultrasonic_distance.distance(trig2, echo2))
-#	    right = running_average.update(ultrasonic_distance.distance(trig3, echo3))
+	    time.sleep(.25)
+	    left = running_average.update(ultrasonic_distance.distance(trig2, echo2))
+	    time.sleep(.25)
+	    right = running_average.update(ultrasonic_distance.distance(trig3, echo3))
             #stop if too close
             if dist < MIN_DIST and DEC == False:
 		print ("TOO CLOSE")
@@ -101,9 +104,9 @@ if __name__ == '__main__':
                 
             # set speed
             motors.setSpeeds(-Lspeed, Rspeed)
-                
+            print (str(right) + ' ' + str(left))
             print ("Measured Distance = %.1f cm, Current Speed = %.2f, %.2f" % (dist, Lspeed, Rspeed))
-            time.sleep(.05)
+#            time.sleep(.05)
  
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:

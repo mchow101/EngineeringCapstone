@@ -1,6 +1,6 @@
 from socket import *
 import os
-host = "172.20.27.99"
+host = "172.20.27.97"
 os.system('sudo ifconfig wlan0 down')
 os.system('sudo ifconfig wlan0 ' + host)
 os.system('sudo ifconfig wlan0 up')
@@ -14,4 +14,4 @@ s.listen(5)
 print ("Listening for connections...")
 q,addr = s.accept()
 data = "Call me maybe"
-q.send(bytes(data, "utf-8"))
+q.send(bytes(data))

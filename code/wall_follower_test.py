@@ -1,4 +1,5 @@
 import time
+import threading
 from dual_mc33926_rpi import motors, MAX_SPEED
 import RPi.GPIO as GPIO
 import ultrasonic_distance
@@ -28,24 +29,33 @@ Rtarget = 0
 
 MIN_DIST = 60
 WINDOW_LENGTH = 5
-WALL_DIST = 45
+WALL_DIST = 25
+
+def ultrasonics():
+    while True:
+        dist = running_average.update(ultrasonic_distance.distance(trig1, echo1))
+	left = running_average.update(ultrasonic_distance.distance(trig2, echo2))
+	right = running_average.update(ultrasonic_distance.distance(trig3, echo3))
+        time.sleep(0.05)
 
 if __name__ == '__main__':
     try:
-	print ("Starting")
-    motors.enable()
-    motors.setSpeeds(0, 0)
-	Lspeed = 0
-	Rspeed = 0
-	lst = [MIN_DIST] * WINDOW_LENGTH
-	running_average.average_init(lst)
-	ultrasonic_distance.init(trig1, echo1)
-	ultrasonic_distance.init(trig2, echo2)
-	ultrasonic_distance.init(trig3, echo3)
+        print ("Starting")
+        #motor setup
+        motors.enable()
+        motors.setSpeeds(0, 0)
+        Lspeed = 0
+        Rspeed = 0
+        lst = [MIN_DIST] * WINDOW_LENGTH
+        #ultrasonic setup
+        running_average.average_init(lst)
+        ultrasonic_distance.init(trig1, echo1)
+        ultrasonic_distance.init(trig2, echo2)
+        ultrasonic_distance.init(trig3, echo3)
+        x = threading.Thread(target=ultrasonics, args=())
+        x.daemon = True
+        x.start()
         while True:
-            dist = running_average.update(ultrasonic_distance.distance(trig1, echo1))
-	        left = running_average.update(ultrasonic_distance.distance(trig2, echo2))
-	        right = running_average.update(ultrasonic_distance.distance(trig3, echo3))
             #turn if too close
             if dist < MIN_DIST and TURNING == False:
                 print ("TOO CLOSE")
@@ -90,10 +100,10 @@ if __name__ == '__main__':
                 Rtarget = FORWARD_SPEED
             # decelerate
             elif DEC == True:
-            print ("DECELERKERLKEJR")
+                print ("DECELERKERLKEJR")
                 Ltarget = -FORWARD_SPEED
                 Rtarget = -FORWARD_SPEED
-                # cruise
+            # cruise
             elif DEC == False and ACC == False and STOP == False and (Rspeed > 0 or Lspeed > 0):
                 print ("ACTUALLY CRUISING")
                 Ltarget = FORWARD_SPEED
@@ -129,7 +139,8 @@ if __name__ == '__main__':
             motors.setSpeeds(-Lspeed, Rspeed)
 
             print ("Measured Distance = %.1f cm, Current Speed = %.2f, %.2f" % (dist, Lspeed, Rspeed))
-            time.sleep(.05)
+            print ("Left = %.1f cm, Right = %.1f cm" % (left, right))
+            #time.sleep(.05)
 
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:

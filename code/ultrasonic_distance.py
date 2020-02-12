@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 dist1 = distance(trig1, echo1)
                 dist2 = distance(trig2, echo2)
 		dist3 = distance(trig3, echo3)
-                time.sleep(1)
+                time.sleep(0.05)
                 print ("Distance 1 = %.3f cm" % dist1)
                 print ("Distance 2 = %.3f cm" % dist2)
 		print ("Distance 3 = %.3f cm" % dist3)
