@@ -38,8 +38,7 @@
             Swarm robotics is the use of a large number of robots to complete a task which a single robot could
             not. In our design, the robots have three major functions: moving, communicating, and sensing. Using these
             three abilities in conjunction, we aim to use the swarm to map out the layout of our high school's campus,
-            an
-            application which potentially can be expanded for exploration or disaster relief.
+            an application which potentially can be expanded for exploration or disaster relief.
         </p>
 
         <h4 class="featurette-heading">Formal Research Question</h4>
@@ -56,6 +55,22 @@
         <hr class="featurette-divider" id="updates">
         <h1 class="featurette-heading">Progress Updates</h1>
         <div class="section" style="margin: 0% 5% 0% 5%">
+            <h4 class="featurette-heading">Week of February 17</h4>
+            <p class="lead">
+                Worked on robot simulation. In addition to gradually increasing the complexity of the robot's motion,
+                the simulation now includes objects in its environment to simulate obstacles. We also continued 
+                researching networking and the sensor issues.
+            </p>
+
+            <h4 class="featurette-heading">Week of February 10</h4>
+            <p class="lead">
+                Continued working on sensor integration. We tested the use of threads within the code to get ultrasonic 
+                readings in parallel with driving; we tried this solution because we believed that the errors in readings
+                were due to overlapping signals between the sensors and wanted to minimize interference between individual
+                sensors as well as between the sensors and the motors. However, the three sensors still returned incorrect 
+                and inconsistent readings when running at the same time. 
+            </p>
+
             <h4 class="featurette-heading">Week of February 3</h4>
             <p class="lead">
                 Refined driving code with integration of multiple sensors. We are facing some challenges in retrieving 
