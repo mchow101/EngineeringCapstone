@@ -13,8 +13,9 @@ echo2 = 11
 trig3 = 19
 echo3 = 26
 
-FORWARD_SPEED = MAX_SPEED
-REVERSE_SPEED = FORWARD_SPEED
+FORWARD_SPEED = MAX_SPEED * 3 / 4
+REVERSE_SPEED = FORWARD_SPEED * 9 / 10
+TURN_SPEED = MAX_SPEED * 4 / 5
 ACC_VALUE = 10
 STOP_VALUE = 20
 
@@ -91,54 +92,54 @@ if __name__ == '__main__':
 		TURNING = False
                 ACC = True
             elif TURNING == True:
-		print ("TURNING")
-                if Rspeed < Lspeed:
-                    Rtarget = -FORWARD_SPEED
-                    Ltarget = FORWARD_SPEED
+#		print ("TURNING")
+                if Rspeed <= Lspeed:
+                    Rtarget = -REVERSE_SPEED
+                    Ltarget = TURN_SPEED
                 else:
-                    Rtarget = FORWARD_SPEED
-                    Ltarget = -FORWARD_SPEED
+                    Rtarget = TURN_SPEED
+                    Ltarget = -REVERSE_SPEED
             # start if in range
             elif dist >= MIN_DIST and ACC == False:
-		print ("ACCELERATING")
+#		print ("ACCELERATING")
                 ACC = True
                 DEC = False
             # reached max speed
             elif ACC == True and (Lspeed >= FORWARD_SPEED or Rspeed >= FORWARD_SPEED):
-                print ("CRUISING FORWARD")
+#                print ("CRUISING FORWARD")
                 ACC = False
                 Ltarget = FORWARD_SPEED
                 Rtarget = FORWARD_SPEED
             # stopping
             elif DEC == True and (Lspeed <= 0 or Rspeed <= 0):
-                print ("STOPPING")
+#                print ("STOPPING")
                 DEC = False
                 STOP = True
                 Ltarget = 0
                 Rtarget = 0
             # stopped
             elif STOP == True and (Lspeed == 0 or Rspeed == 0):
-                print ("STOPPED")
+#                print ("STOPPED")
                 STOP = False
                 Ltarget = 0
                 Rtarget = 0
             # accelerate
             elif ACC == True:
-                print ("ACCEERLERLER")
+#                print ("ACCEERLERLER")
                 Ltarget = FORWARD_SPEED
                 Rtarget = FORWARD_SPEED
             # decelerate
             elif DEC == True:
-                print ("DECELERKERLKEJR")
+#                print ("DECELERKERLKEJR")
                 Ltarget = -FORWARD_SPEED
                 Rtarget = -FORWARD_SPEED
             # cruise
             elif DEC == False and ACC == False and STOP == False and (Rspeed > 0 or Lspeed > 0):
-                print ("ACTUALLY CRUISING")
+#                print ("ACTUALLY CRUISING")
                 Ltarget = FORWARD_SPEED
                 Rtarget = FORWARD_SPEED
             else:
-                print ("E STOPPED... something's wrong")
+#                print ("E STOPPED... something's wrong")
                 Lspeed = 0
                 Rspeed = 0
 
@@ -166,7 +167,7 @@ if __name__ == '__main__':
 
             # set speed
             motors.setSpeeds(-Lspeed, Rspeed)
-            print ("Measured Distance = %.1f cm, Current Speed = %.2f, %.2f" % (dist, Lspeed, Rspeed))
+#            print ("Measured Distance = %.1f cm, Current Speed = %.2f, %.2f" % (dist, Lspeed, Rspeed))
 #            print ("Left = %.1f cm, Right = %.1f cm" % (left, right))
 #            #time.sleep(.05)
 
@@ -176,6 +177,6 @@ if __name__ == '__main__':
         motors.setSpeeds(0, 0)
         motors.disable()
         GPIO.cleanup()
-
+        
 motors.setSpeeds(0, 0)
 motors.disable()
