@@ -55,90 +55,134 @@
         <hr class="featurette-divider" id="updates">
         <h1 class="featurette-heading">Progress Updates</h1>
         <div class="section" style="margin: 0% 5% 0% 5%">
+            <h4 class="featurette-heading">Week of April 6</h4>
+            <div class="row">
+                <div class="col-md-7">
+                    <p class="lead">
+                        Researched possible scalable network architectures. While the easiest to implement would be the
+                        client-server network (see image) where a single central server stores data from each robot and
+                        individual robots can send and receive data to and from this central server, such a network
+                        would not lend itself to a true swarm robot application. Therefore, a peer-to-peer network (see
+                        image), with each robot acting as both client and server to every other robot, may be more
+                        useful. With this in mind, we will continue our hardware testing next week by creating a simple
+                        peer-to-peer network between two Raspis. After we are able to implement this, we will attempt
+                        to create a more flexible swarm network (see image). Unlike the peer-to-peer network, which
+                        would require each additional robot in the swarm to connect to every other robot, we hope to
+                        create a system of interconnected peer-to-peer networks which will pass data along to the whole
+                        swarm without a centralized server but still eliminating the burden of so many individual
+                        connections.
+                    </p>
+                </div>
+                <div class="col-md-5 img-captioned">
+                    <img src="${lph}/../images/networking.png" class="post-img img-fluid d-block">
+                    <p class="lead"><i>Various possible network structures</i></p>
+                </div>
+            </div>
+
+            <h4 class="featurette-heading">Week of March 30</h4>
+            <p class="lead">
+                Faced some obstacles in Gazebo. Many of the previously functioning aspects of the simulation broke, so
+                we spent some time to fix the errors before continuing with the computerized representation of swarm
+                functionality. We are also researching how best to approach and structure the two-sided data exchange
+                for the Raspis in order to create a network which is both robust and scalable. This includes finding a
+                way to decentralize server functionality, which we are hoping to achieve with broadcasting nodes.
+            </p>
+
+            <h4 class="featurette-heading">Week of March 23</h4>
+            <p class="lead">
+                Continued progress with networking testing. After setting up a two devices with the Raspbian OS, as
+                opposed to the ROS-based Ubuntu we were using earlier, we found that overall networking setup was more
+                stable. We then used this to begin testing the ability of multiple Raspi units to connect wirelessly
+                and send information, including basic text messaging as well as continuous streams of numerical data.
+                Barring occasional network errors, the server side is working consistently; however, we will continue
+                to test the client side and begin experimenting with data being sent in both directions.
+            </p>
+
             <h4 class="featurette-heading">Week of March 16</h4>
             <p class="lead">
-                Continued working on drive code and networking. We were able to make some more improvements to the drive sequence,
-                but have determined that we want to further develop the robot's ability to navigate by formulating an algorithm which 
-                will allow the robot to turn more intelligently. Additionally, we made significant progress in the networking aspects 
-                of the swarm. We are now able to consistently send text messages from one device to another, although we have not found 
-                a foolproof way to ensure that the IP address used to connect devices will not interfere with other devices on the same 
-                network. In the coming weeks we plan to test the ability of multiple Raspis to connect, as well as add functionality which 
-                will allow robots to start and stop each others' drive sequences. 
+                Continued working on drive code and networking. We were able to make some more improvements to the
+                drive sequence, but have determined that we want to further develop the robot's ability to navigate by
+                formulating an algorithm which will allow the robot to turn more intelligently. Additionally, we made
+                significant progress in the networking aspects of the swarm. We are now able to consistently send text
+                messages from one device to another, although we have not found a foolproof way to ensure that the IP
+                address used to connect devices will not interfere with other devices on the same network. In the
+                coming weeks we plan to test the ability of multiple Raspis to connect, as well as add functionality
+                which will allow robots to start and stop each others' drive sequences.
             </p>
 
             <h4 class="featurette-heading">Week of March 9</h4>
             <p class="lead">
-                Fixed wifi connection issues and improved driving. After some testing, we found that the wifi connection problems 
-                were primarily caused by hardware issues and fixed this by changing the physical Ras Pi unit. We also continued to 
-                improve the robot's turning abilities, and although we still need to work out the occasional unusual behavior, 
-                the overall navigation capibility of a single robot now allows it to successfully navigate through its 
-                environment.
+                Continued improving driving. We have made some further improvements to the drive algorithms, and we
+                continued our testing to understand and adjust some of the limitations of the robots' ability to
+                sense its environment. <a href="https://drive.google.com/open?id=1_GTZfUJjNl6kDonWTtNQjjSHicE6bE0k">Here</a>
+                is a video of the robot navigating a brick pathway.
             </p>
 
             <h4 class="featurette-heading">Week of March 2</h4>
             <p class="lead">
-                Fixed wifi connection issues and improved driving. After some testing, we found that the wifi connection problems 
-                were primarily caused by hardware issues and fixed this by changing the physical Ras Pi unit. We also continued to 
-                improve the robot's turning abilities, and although we still need to work out the occasional unusual behavior, 
-                the overall navigation capibility of a single robot now allows it to successfully navigate through its 
-                environment.
+                Fixed wifi connection issues and improved driving. After some testing, we found that the wifi
+                connection problems were primarily caused by hardware issues and fixed this by changing the physical
+                Ras Pi unit. We also continued to improve the robot's turning abilities, and although we still need to
+                work out the occasional unusual behavior, the overall navigation capibility of a single robot now
+                allows it to successfully navigate through its environment.
             </p>
 
             <h4 class="featurette-heading">Week of February 24</h4>
             <p class="lead">
-                Made progress on networking. We were able to set up the robot to be able to more consistently run code 
-                remotely through an SSH connection. However, we experienced frequent disconnecting, even while the robot 
-                was driving, and we are researching solutions to reduce disruptions and ensure that the robot cannot continue
-                driving when the remote connection is broken. Additionally, we made some improvements to the robot's navigational 
-                abilities by making a more deliberate turning procedure when obstacles are detected, but this code needs to be 
-                debugged. 
+                Made progress on networking. We were able to set up the robot to be able to more consistently run code
+                remotely through an SSH connection. However, we experienced frequent disconnecting, even while the
+                robot was driving, and we are researching solutions to reduce disruptions and ensure that the robot
+                cannot continue driving when the remote connection is broken. Additionally, we made some improvements
+                to the robot's navigational abilities by making a more deliberate turning procedure when obstacles are
+                detected, but this code needs to be debugged.
             </p>
 
             <h4 class="featurette-heading">Week of February 17</h4>
             <p class="lead">
                 Worked on robot simulation. In addition to gradually increasing the complexity of the robot's motion,
-                the simulation now includes objects in its environment to simulate obstacles. We also continued 
+                the simulation now includes objects in its environment to simulate obstacles. We also continued
                 researching networking and the sensor issues.
             </p>
 
             <h4 class="featurette-heading">Week of February 10</h4>
             <p class="lead">
-                Continued working on sensor integration. We tested the use of threads within the code to get ultrasonic 
-                readings in parallel with driving; we tried this solution because we believed that the errors in readings
-                were due to overlapping signals between the sensors and wanted to minimize interference between individual
-                sensors as well as between the sensors and the motors. However, the three sensors still returned incorrect 
-                and inconsistent readings when running at the same time. 
+                Continued working on sensor integration. We tested the use of threads within the code to get ultrasonic
+                readings in parallel with driving; we tried this solution because we believed that the errors in
+                readings were due to overlapping signals between the sensors and wanted to minimize interference
+                between individual sensors as well as between the sensors and the motors. However, the three sensors
+                still returned incorrect and inconsistent readings when running at the same time.
             </p>
 
             <h4 class="featurette-heading">Week of February 3</h4>
             <p class="lead">
-                Refined driving code with integration of multiple sensors. We are facing some challenges in retrieving 
-                three accurate ultrasonic readings while running the motors, and are troubleshooting this. Additionally, 
-                we tried to implement a new positioning scheme in the simulation but did not find it helpful for our 
-                purposes. 
+                Refined driving code with integration of multiple sensors. We are facing some challenges in retrieving
+                three accurate ultrasonic readings while running the motors, and are troubleshooting this.
+                Additionally, we tried to implement a new positioning scheme in the simulation but did not find it
+                helpful for our purposes.
             </p>
-            
+
             <h4 class="featurette-heading">Week of January 27</h4>
             <p class="lead">
-                Worked on simple paths for the robot's motion in the simulation. We also continued improving networking 
-                connection consistency, and we made some progress in troubleshooting the robot's drive code, including 
-                issues with the turning algorithm. In the simulation aspect, we worked on simple paths for the robot's 
-                motion. 
+                Worked on simple paths for the robot's motion in the simulation. We also continued improving networking
+                connection consistency, and we made some progress in troubleshooting the robot's drive code, including
+                issues with the turning algorithm. In the simulation aspect, we worked on simple paths for the robot's
+                motion.
             </p>
 
             <h4 class="featurette-heading">Week of January 20</h4>
             <p class="lead">
-                Continued testing networking connections between two robots. We have successfully sent basic messages 
-                between the robot and a windows machine, and will continue to test connections between the two robots and 
-                send more complex directions. 
+                Continued testing networking connections between two robots. We have successfully sent basic messages
+                between the robot and a windows machine, and will continue to test connections between the two robots
+                and send more complex directions.
             </p>
 
             <h4 class="featurette-heading">Week of January 13</h4>
             <p class="lead">
                 Began testing networking connection between robots. We are looking into the Sockets API to send and
                 receive information between the two robots, and so far, have tested basic connections on the same host
-                machine. We are working to send information wirelessly from two different machines. We are also continuing 
-                to troubleshoot the issues with Gazebo and plan to move forward with the simulation of robot mapping.
+                machine. We are working to send information wirelessly from two different machines. We are also
+                continuing to troubleshoot the issues with Gazebo and plan to move forward with the simulation of robot
+                mapping.
             </p>
 
             <h4 class="featurette-heading">Week of January 6</h4>
