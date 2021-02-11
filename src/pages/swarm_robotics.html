@@ -30,15 +30,18 @@
         <h1 class="featurette-heading">Swarm Robotics Mapping</h1>
         <p class="lead">
             <i>Jump to:
-                <a href="${lph}/../swarm#updates">Latest Updates</a> |
-                <a href="${lph}/../swarm#timeline">Timeline of Progress</a>
+                <a href="${lph}/../swarm#updates">Progress Updates</a>
+                <!--|
+                <a href="${lph}/../swarm#timeline">Timeline of Progress</a> -->
                 <hr class="featurette-divider">
             </i> </p>
         <p class="lead">
             Swarm robotics is the use of a large number of robots to complete a task which a single robot could
-            not. In our design, the robots have three major functions: moving, communicating, and sensing. Using these
-            three abilities in conjunction, we aim to use the swarm to map out the layout of our high school's campus,
-            an application which potentially can be expanded for exploration or disaster relief.
+            not. In our design, the robots have three major functions: moving, communicating, and sensing. Despite the
+            interruption of our research during the COVID-19 Pandemic, we were able to provide a proof of concept for
+            each function. We demonstrated that using these three abilities in conjunction has the
+            potential to result in a viable swarm which can create a map of a given area. This is an important
+            application which has the potential to be expanded for exploration or disaster relief.
         </p>
 
         <h4 class="featurette-heading">Formal Research Question</h4>
@@ -46,6 +49,15 @@
             How can we use a fundamental understanding of both robotic and swarm technologies to create a map of all
             accessible areas?
         </p>
+
+        <h4 class="featurette-heading">Research Findings</h4>
+        <p class="lead">
+            The code we developed for the various scripts for robot function, as well as this website, can be found in
+            <a href="https://github.com/mchow101/Engineering-Capstone">our GitHub repository</a>. Our research
+            findings were also compiled into <a href="https://docs.google.com/document/d/1Ka6e7w64rHtDAmo1KtToYLs7KGuXMfyIawUXVPkf9sI/edit?usp=sharing">
+            this paper</a>.
+        </p>
+
         <h4 class="featurette-heading">Contact</h4>
         <p class="lead">
             For more information, contact
@@ -54,434 +66,575 @@
         </p>
         <hr class="featurette-divider" id="updates">
         <h1 class="featurette-heading">Progress Updates</h1>
-        <div class="section" style="margin: 0% 5% 0% 5%">
+        <div class="section reverse" style="margin: 0% 5% 0% 5%">
+            <div>
+                <h4 class="featurette-heading">Week of April 20</h4>
+                <p class="lead">
+                    Began writing code to test a peer to peer network. Most of this week was spent researching and
+                    looking at existing libraries or examples of such networks.
+                </p>
+            </div>
+            <div>
+                <h4 class="featurette-heading">Week of April 13</h4>
+                <p class="lead">
+                    Continued testing networking. Our main focus this week was to fix some issues with sending data,
+                    especially with relatively constant streams of data. We envision that a similar process will be
+                    used when the data being sent is the location of each robot, although for testing purposes, we are
+                    now able to send timestamps between two Pis at a constant rate.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of April 20</h4>
-            <p class="lead">
-                Began writing code to test a peer to peer network. Most of this week was spent researching and 
-                looking at existing libraries or examples of such networks.
-            </p>
-
-            <h4 class="featurette-heading">Week of April 13</h4>
-            <p class="lead">
-                Continued testing networking. Our main focus this week was to fix some issues with sending data,
-                especially with relatively constant streams of data. We envision that a similar process will be
-                used when the data being sent is the location of each robot, although for testing purposes, we are
-                now able to send timestamps between two Pis at a constant rate.
-            </p>
-
-            <h4 class="featurette-heading">Week of April 6</h4>
-            <div class="row">
-                <div class="col-md-7">
-                    <p class="lead">
-                        Researched possible scalable network architectures. While the easiest to implement would be the
-                        client-server network (see image) where a single central server stores data from each robot and
-                        individual robots can send and receive data to and from this central server, such a network
-                        would not lend itself to a true swarm robot application. Therefore, a peer-to-peer network (see
-                        image), with each robot acting as both client and server to every other robot, may be more
-                        useful. With this in mind, we will continue our hardware testing next week by creating a simple
-                        peer-to-peer network between two Raspis. After we are able to implement this, we will attempt
-                        to create a more flexible swarm network (see image). Unlike the peer-to-peer network, which
-                        would require each additional robot in the swarm to connect to every other robot, we hope to
-                        create a system of interconnected peer-to-peer networks which will pass data along to the whole
-                        swarm without a centralized server but still eliminating the burden of so many individual
-                        connections.
-                    </p>
-                </div>
-                <div class="col-md-5 img-captioned">
-                    <img src="${lph}/../images/networking.png" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Various possible network structures</i></p>
+                <h4 class="featurette-heading">Week of April 6</h4>
+                <div class="row">
+                    <div class="col-md-7">
+                        <p class="lead">
+                            Researched possible scalable network architectures. While the easiest to implement would be
+                            the
+                            client-server network (see image) where a single central server stores data from each robot
+                            and
+                            individual robots can send and receive data to and from this central server, such a network
+                            would not lend itself to a true swarm robot application. Therefore, a peer-to-peer network
+                            (see
+                            image), with each robot acting as both client and server to every other robot, may be more
+                            useful. With this in mind, we will continue our hardware testing next week by creating a
+                            simple
+                            peer-to-peer network between two Raspis. After we are able to implement this, we will
+                            attempt
+                            to create a more flexible swarm network (see image). Unlike the peer-to-peer network, which
+                            would require each additional robot in the swarm to connect to every other robot, we hope
+                            to
+                            create a system of interconnected peer-to-peer networks which will pass data along to the
+                            whole
+                            swarm without a centralized server but still eliminating the burden of so many individual
+                            connections.
+                        </p>
+                    </div>
+                    <div class="col-md-5 img-captioned">
+                        <img src="${lph}/../images/networking.png" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Various possible network structures</i></p>
+                    </div>
                 </div>
             </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of March 30</h4>
-            <p class="lead">
-                Faced some obstacles in Gazebo. Many of the previously functioning aspects of the simulation broke, so
-                we spent some time to fix the errors before continuing with the computerized representation of swarm
-                functionality. We are also researching how best to approach and structure the two-sided data exchange
-                for the Raspis in order to create a network which is both robust and scalable. This includes finding a
-                way to decentralize server functionality, which we are hoping to achieve with broadcasting nodes.
-            </p>
+                <h4 class="featurette-heading">Week of March 30</h4>
+                <p class="lead">
+                    Faced some obstacles in Gazebo. Many of the previously functioning aspects of the simulation broke,
+                    so
+                    we spent some time to fix the errors before continuing with the computerized representation of
+                    swarm
+                    functionality. We are also researching how best to approach and structure the two-sided data
+                    exchange
+                    for the Raspis in order to create a network which is both robust and scalable. This includes
+                    finding a
+                    way to decentralize server functionality, which we are hoping to achieve with broadcasting nodes.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of March 23</h4>
-            <p class="lead">
-                Continued progress with networking testing. After setting up a two devices with the Raspbian OS, as
-                opposed to the ROS-based Ubuntu we were using earlier, we found that overall networking setup was more
-                stable. We then used this to begin testing the ability of multiple Raspi units to connect wirelessly
-                and send information, including basic text messaging as well as continuous streams of numerical data.
-                Barring occasional network errors, the server side is working consistently; however, we will continue
-                to test the client side and begin experimenting with data being sent in both directions.
-            </p>
+                <h4 class="featurette-heading">Week of March 23</h4>
+                <p class="lead">
+                    Continued progress with networking testing. After setting up a two devices with the Raspbian OS, as
+                    opposed to the ROS-based Ubuntu we were using earlier, we found that overall networking setup was
+                    more
+                    stable. We then used this to begin testing the ability of multiple Raspi units to connect
+                    wirelessly
+                    and send information, including basic text messaging as well as continuous streams of numerical
+                    data.
+                    Barring occasional network errors, the server side is working consistently; however, we will
+                    continue
+                    to test the client side and begin experimenting with data being sent in both directions.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of March 16</h4>
-            <p class="lead">
-                Continued working on drive code and networking. We were able to make some more improvements to the
-                drive sequence, but have determined that we want to further develop the robot's ability to navigate by
-                formulating an algorithm which will allow the robot to turn more intelligently. Additionally, we made
-                significant progress in the networking aspects of the swarm. We are now able to consistently send text
-                messages from one device to another, although we have not found a foolproof way to ensure that the IP
-                address used to connect devices will not interfere with other devices on the same network. In the
-                coming weeks we plan to test the ability of multiple Raspis to connect, as well as add functionality
-                which will allow robots to start and stop each others' drive sequences.
-            </p>
+                <h4 class="featurette-heading">Week of March 16</h4>
+                <p class="lead">
+                    Continued working on drive code and networking. We were able to make some more improvements to the
+                    drive sequence, but have determined that we want to further develop the robot's ability to navigate
+                    by
+                    formulating an algorithm which will allow the robot to turn more intelligently. Additionally, we
+                    made
+                    significant progress in the networking aspects of the swarm. We are now able to consistently send
+                    text
+                    messages from one device to another, although we have not found a foolproof way to ensure that the
+                    IP
+                    address used to connect devices will not interfere with other devices on the same network. In the
+                    coming weeks we plan to test the ability of multiple Raspis to connect, as well as add
+                    functionality
+                    which will allow robots to start and stop each others' drive sequences.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of March 9</h4>
-            <p class="lead">
-                Continued improving driving. We have made some further improvements to the drive algorithms, and we
-                continued our testing to understand and adjust some of the limitations of the robots' ability to
-                sense its environment. <a href="https://drive.google.com/open?id=1_GTZfUJjNl6kDonWTtNQjjSHicE6bE0k">Here</a>
-                is a video of the robot navigating a brick pathway.
-            </p>
+                <h4 class="featurette-heading">Week of March 9</h4>
+                <p class="lead">
+                    Continued improving driving. We have made some further improvements to the drive algorithms, and we
+                    continued our testing to understand and adjust some of the limitations of the robots' ability to
+                    sense its environment. <a href="https://drive.google.com/open?id=1_GTZfUJjNl6kDonWTtNQjjSHicE6bE0k">Here</a>
+                    is a video of the robot navigating a brick pathway.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of March 2</h4>
-            <p class="lead">
-                Fixed wifi connection issues and improved driving. After some testing, we found that the wifi
-                connection problems were primarily caused by hardware issues and fixed this by changing the physical
-                Ras Pi unit. We also continued to improve the robot's turning abilities, and although we still need to
-                work out the occasional unusual behavior, the overall navigation capibility of a single robot now
-                allows it to successfully navigate through its environment.
-            </p>
+                <h4 class="featurette-heading">Week of March 2</h4>
+                <p class="lead">
+                    Fixed wifi connection issues and improved driving. After some testing, we found that the wifi
+                    connection problems were primarily caused by hardware issues and fixed this by changing the
+                    physical
+                    Ras Pi unit. We also continued to improve the robot's turning abilities, and although we still need
+                    to
+                    work out the occasional unusual behavior, the overall navigation capibility of a single robot now
+                    allows it to successfully navigate through its environment.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of February 24</h4>
-            <p class="lead">
-                Made progress on networking. We were able to set up the robot to be able to more consistently run code
-                remotely through an SSH connection. However, we experienced frequent disconnecting, even while the
-                robot was driving, and we are researching solutions to reduce disruptions and ensure that the robot
-                cannot continue driving when the remote connection is broken. Additionally, we made some improvements
-                to the robot's navigational abilities by making a more deliberate turning procedure when obstacles are
-                detected, but this code needs to be debugged.
-            </p>
+                <h4 class="featurette-heading">Week of February 24</h4>
+                <p class="lead">
+                    Made progress on networking. We were able to set up the robot to be able to more consistently run
+                    code
+                    remotely through an SSH connection. However, we experienced frequent disconnecting, even while the
+                    robot was driving, and we are researching solutions to reduce disruptions and ensure that the robot
+                    cannot continue driving when the remote connection is broken. Additionally, we made some
+                    improvements
+                    to the robot's navigational abilities by making a more deliberate turning procedure when obstacles
+                    are
+                    detected, but this code needs to be debugged.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of February 17</h4>
-            <p class="lead">
-                Worked on robot simulation. In addition to gradually increasing the complexity of the robot's motion,
-                the simulation now includes objects in its environment to simulate obstacles. We also continued
-                researching networking and the sensor issues.
-            </p>
+                <h4 class="featurette-heading">Week of February 17</h4>
+                <p class="lead">
+                    Worked on robot simulation. In addition to gradually increasing the complexity of the robot's
+                    motion,
+                    the simulation now includes objects in its environment to simulate obstacles. We also continued
+                    researching networking and the sensor issues.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of February 10</h4>
-            <p class="lead">
-                Continued working on sensor integration. We tested the use of threads within the code to get ultrasonic
-                readings in parallel with driving; we tried this solution because we believed that the errors in
-                readings were due to overlapping signals between the sensors and wanted to minimize interference
-                between individual sensors as well as between the sensors and the motors. However, the three sensors
-                still returned incorrect and inconsistent readings when running at the same time.
-            </p>
+                <h4 class="featurette-heading">Week of February 10</h4>
+                <p class="lead">
+                    Continued working on sensor integration. We tested the use of threads within the code to get
+                    ultrasonic
+                    readings in parallel with driving; we tried this solution because we believed that the errors in
+                    readings were due to overlapping signals between the sensors and wanted to minimize interference
+                    between individual sensors as well as between the sensors and the motors. However, the three
+                    sensors
+                    still returned incorrect and inconsistent readings when running at the same time.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of February 3</h4>
-            <p class="lead">
-                Refined driving code with integration of multiple sensors. We are facing some challenges in retrieving
-                three accurate ultrasonic readings while running the motors, and are troubleshooting this.
-                Additionally, we tried to implement a new positioning scheme in the simulation but did not find it
-                helpful for our purposes.
-            </p>
+                <h4 class="featurette-heading">Week of February 3</h4>
+                <p class="lead">
+                    Refined driving code with integration of multiple sensors. We are facing some challenges in
+                    retrieving
+                    three accurate ultrasonic readings while running the motors, and are troubleshooting this.
+                    Additionally, we tried to implement a new positioning scheme in the simulation but did not find it
+                    helpful for our purposes.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of January 27</h4>
-            <p class="lead">
-                Worked on simple paths for the robot's motion in the simulation. We also continued improving networking
-                connection consistency, and we made some progress in troubleshooting the robot's drive code, including
-                issues with the turning algorithm. In the simulation aspect, we worked on simple paths for the robot's
-                motion.
-            </p>
+                <h4 class="featurette-heading">Week of January 27</h4>
+                <p class="lead">
+                    Worked on simple paths for the robot's motion in the simulation. We also continued improving
+                    networking
+                    connection consistency, and we made some progress in troubleshooting the robot's drive code,
+                    including
+                    issues with the turning algorithm. In the simulation aspect, we worked on simple paths for the
+                    robot's
+                    motion.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of January 20</h4>
-            <p class="lead">
-                Continued testing networking connections between two robots. We have successfully sent basic messages
-                between the robot and a windows machine, and will continue to test connections between the two robots
-                and send more complex directions.
-            </p>
+                <h4 class="featurette-heading">Week of January 20</h4>
+                <p class="lead">
+                    Continued testing networking connections between two robots. We have successfully sent basic
+                    messages
+                    between the robot and a windows machine, and will continue to test connections between the two
+                    robots
+                    and send more complex directions.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of January 13</h4>
-            <p class="lead">
-                Began testing networking connection between robots. We are looking into the Sockets API to send and
-                receive information between the two robots, and so far, have tested basic connections on the same host
-                machine. We are working to send information wirelessly from two different machines. We are also
-                continuing to troubleshoot the issues with Gazebo and plan to move forward with the simulation of robot
-                mapping.
-            </p>
+                <h4 class="featurette-heading">Week of January 13</h4>
+                <p class="lead">
+                    Began testing networking connection between robots. We are looking into the Sockets API to send and
+                    receive information between the two robots, and so far, have tested basic connections on the same
+                    host
+                    machine. We are working to send information wirelessly from two different machines. We are also
+                    continuing to troubleshoot the issues with Gazebo and plan to move forward with the simulation of
+                    robot
+                    mapping.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of January 6</h4>
-            <p class="lead">
-                Ordered and assembled a second physical robot in order to begin work on cross robot communications.
-                We were able to get the robot running, and able to connect over wifi. The next step is to equip it with
-                ultrasonic sensors and have a network communicate the readings between the two robots. We also have
-                experienced some difficulties working with Gazebo, possibly due to either a weak CPU or graphics card.
-            </p>
+                <h4 class="featurette-heading">Week of January 6</h4>
+                <p class="lead">
+                    Ordered and assembled a second physical robot in order to begin work on cross robot communications.
+                    We were able to get the robot running, and able to connect over wifi. The next step is to equip it
+                    with
+                    ultrasonic sensors and have a network communicate the readings between the two robots. We also have
+                    experienced some difficulties working with Gazebo, possibly due to either a weak CPU or graphics
+                    card.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of December 16</h4>
-            <p class="lead">
-                Wrote <a href="https://docs.google.com/document/d/1nwHWVbWZztCHJ8glD700FUFOEXVDj3VKAygwTfJMh28/edit?usp=sharing">
-                    semester progress update</a>. We also continued troubleshooting networking issues and improving
-                code for
-                driving and wall avoidance. Additionally, we installed and began working with the Gazebo simulation
-                software.
-            </p>
+                <h4 class="featurette-heading">Week of December 16</h4>
+                <p class="lead">
+                    Wrote <a href="https://docs.google.com/document/d/1nwHWVbWZztCHJ8glD700FUFOEXVDj3VKAygwTfJMh28/edit?usp=sharing">
+                        semester progress update</a>. We also continued troubleshooting networking issues and improving
+                    code for
+                    driving and wall avoidance. Additionally, we installed and began working with the Gazebo simulation
+                    software.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of December 9</h4>
-            <p class="lead">
-                Continued working on ultrasonics. In addition, we troubleshooted some issues involving networking and
-                running code. We also began working on our update for the semester, which will include information
-                about
-                our progress to date, obstacles we have encountered, and modifications to our original plan moving
-                forward.
-            </p>
+                <h4 class="featurette-heading">Week of December 9</h4>
+                <p class="lead">
+                    Continued working on ultrasonics. In addition, we troubleshooted some issues involving networking
+                    and
+                    running code. We also began working on our update for the semester, which will include information
+                    about
+                    our progress to date, obstacles we have encountered, and modifications to our original plan moving
+                    forward.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of December 2</h4>
-            <p class="lead">
-                Added more ultrasonics to the robot. After wiring the additional sensors, we tested each individually
-                before testing to make sure that the robot could read from all three ultrasonics at the same time, and
-                we discussed how to incorporate all the sensors into the robot design. One possibility was having all
-                three serve for front collision avoidance, with each angled to provide maximum sensor coverage.
-                However,
-                we decided to move forward with prototyping a wall-following action for the robot, which would involve
-                using side-facing sensors to help the robot move adjacent to the nearest wall and hopefully, contribute
-                to
-                the mapping functionality.
-            </p>
+                <h4 class="featurette-heading">Week of December 2</h4>
+                <p class="lead">
+                    Added more ultrasonics to the robot. After wiring the additional sensors, we tested each
+                    individually
+                    before testing to make sure that the robot could read from all three ultrasonics at the same time,
+                    and
+                    we discussed how to incorporate all the sensors into the robot design. One possibility was having
+                    all
+                    three serve for front collision avoidance, with each angled to provide maximum sensor coverage.
+                    However,
+                    we decided to move forward with prototyping a wall-following action for the robot, which would
+                    involve
+                    using side-facing sensors to help the robot move adjacent to the nearest wall and hopefully,
+                    contribute
+                    to
+                    the mapping functionality.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of November 25</h4>
-            <p class="lead">
-                Attempted to set up basic networking. We decided to try an ad hoc network which would allow simple peer
-                to peer communication, and followed a <a href="https://wiki.debian.org/WiFi/AdHoc">tutorial</a> to try
-                establishing a connection between nodes. While the initial setup went smoothly, the two Raspis were
-                unable to connect with each other. We also attempted to install Gazebo again on a Raspi, but
-                encountered issues with the installation. We plan to try running Gazebo on a VM next week, and will
-                look into troubleshooting the network connections.
-            </p>
+                <h4 class="featurette-heading">Week of November 25</h4>
+                <p class="lead">
+                    Attempted to set up basic networking. We decided to try an ad hoc network which would allow simple
+                    peer
+                    to peer communication, and followed a <a href="https://wiki.debian.org/WiFi/AdHoc">tutorial</a> to
+                    try
+                    establishing a connection between nodes. While the initial setup went smoothly, the two Raspis were
+                    unable to connect with each other. We also attempted to install Gazebo again on a Raspi, but
+                    encountered issues with the installation. We plan to try running Gazebo on a VM next week, and will
+                    look into troubleshooting the network connections.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of November 18</h4>
-            <p class="lead">
-                Faced several issues surrounding limit switches this week. We thought that limit switches would help
-                with object avoidance in case the ultrasonic reading was too slow. After wiring the limit switch, the
-                triggered state would give consistent readings, but the untriggered state would oscillate in an
-                unpredictable pattern between the two values. While we attempted to switch between normally closed and
-                normally open settings, and even try a different limit switch, we could not solve the problem. We will
-                look into troubleshooting this problem and hopefully implement them into our final design.
-            </p>
+                <h4 class="featurette-heading">Week of November 18</h4>
+                <p class="lead">
+                    Faced several issues surrounding limit switches this week. We thought that limit switches would
+                    help
+                    with object avoidance in case the ultrasonic reading was too slow. After wiring the limit switch,
+                    the
+                    triggered state would give consistent readings, but the untriggered state would oscillate in an
+                    unpredictable pattern between the two values. While we attempted to switch between normally closed
+                    and
+                    normally open settings, and even try a different limit switch, we could not solve the problem. We
+                    will
+                    look into troubleshooting this problem and hopefully implement them into our final design.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of November 11</h4>
-            <p class="lead">
-                Began implementing more advanced control into the code. We spent some time testing the consistency of
-                the automatic stopping of the robot, and found that at distances over 60 cm there was enough space for
-                the robot to consistently decelerate and stop before hitting the obstacle. Once we were at higher
-                distances, however, the robot would automatically stop due to single erroneous readings. To avoid this
-                issue, we implemented a running average of the ultrasonic distance readings (see graphs below). The
-                window size which reduces errors while still allowing the robot to stop in time is 10 readings. Another
-                issue we encountered with the ultrasonic was avoiding less obvious obstacles - for example, the robot
-                ran into a chair and did not stop, even when stuck, because its sensor could not detect the leg. We are
-                looking into solutions for this issue in the coming week.
-            </p>
-            <div class="row">
-                <div class="col-md-3 img-captioned">
-                    <img src="${lph}/../images/UnscaledUSData.png" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Raw readings over time from the ultrasonic at constant distance</i></p>
+                <h4 class="featurette-heading">Week of November 11</h4>
+                <p class="lead">
+                    Began implementing more advanced control into the code. We spent some time testing the consistency
+                    of
+                    the automatic stopping of the robot, and found that at distances over 60 cm there was enough space
+                    for
+                    the robot to consistently decelerate and stop before hitting the obstacle. Once we were at higher
+                    distances, however, the robot would automatically stop due to single erroneous readings. To avoid
+                    this
+                    issue, we implemented a running average of the ultrasonic distance readings (see graphs below). The
+                    window size which reduces errors while still allowing the robot to stop in time is 10 readings.
+                    Another
+                    issue we encountered with the ultrasonic was avoiding less obvious obstacles - for example, the
+                    robot
+                    ran into a chair and did not stop, even when stuck, because its sensor could not detect the leg. We
+                    are
+                    looking into solutions for this issue in the coming week.
+                </p>
+                <div class="row">
+                    <div class="col-md-3 img-captioned">
+                        <img src="${lph}/../images/UnscaledUSData.png" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Raw readings over time from the ultrasonic at constant distance</i></p>
+                    </div>
+                    <div class="col-md-3 img-captioned">
+                        <img src="${lph}/../images/5IntervalRA-USData.png" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Smoothing of readings with a running average window of 5</i></p>
+                    </div>
+                    <div class="col-md-3 img-captioned">
+                        <img src="${lph}/../images/10IntervalRA-USData.png" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Window of 10</i></p>
+                    </div>
+                    <div class="col-md-3 img-captioned">
+                        <img src="${lph}/../images/15IntervalRA-USData.png" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Window of 15</i></p>
+                    </div>
                 </div>
-                <div class="col-md-3 img-captioned">
-                    <img src="${lph}/../images/5IntervalRA-USData.png" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Smoothing of readings with a running average window of 5</i></p>
-                </div>
-                <div class="col-md-3 img-captioned">
-                    <img src="${lph}/../images/10IntervalRA-USData.png" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Window of 10</i></p>
-                </div>
-                <div class="col-md-3 img-captioned">
-                    <img src="${lph}/../images/15IntervalRA-USData.png" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Window of 15</i></p>
+
+            </div>
+            <div>
+                <h4 class="featurette-heading">Week of November 4</h4>
+                <p class="lead">
+                    Combined the ultrasonic and drive train wirings, and performed preliminary tests on auto-stop code.
+                    The
+                    code read ultrasonic distance in front of the robot to detect if an obstacle was within the
+                    stopping
+                    range, and used a basic state machine to accelerate, cruise, or decelerate and stop. Additionally,
+                    we
+                    downloaded Gazebo, but we faced challenges in running the installation for version 10 or several
+                    earlier. We plan on using Gazebo to run simulations of the swarm, which will help us see and fix
+                    problems before any real world testing.
+                </p>
+                <div class="row">
+                    <div class="col-md-6 img-captioned">
+                        <img src="${lph}/../images/jankasselectronics.jpg" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Robot stopped automatically when it detects a barrier</i></p>
+                    </div>
+                    <div class="col-md-6 img-captioned">
+                        <img src="${lph}/../images/stacked.jpg" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Electronic setup from top to bottom: motor controller, GPIO HAT, and Raspi</i></p>
+                    </div>
                 </div>
             </div>
-
-            <h4 class="featurette-heading">Week of November 4</h4>
-            <p class="lead">
-                Combined the ultrasonic and drive train wirings, and performed preliminary tests on auto-stop code. The
-                code read ultrasonic distance in front of the robot to detect if an obstacle was within the stopping
-                range, and used a basic state machine to accelerate, cruise, or decelerate and stop. Additionally, we
-                downloaded Gazebo, but we faced challenges in running the installation for version 10 or several
-                earlier. We plan on using Gazebo to run simulations of the swarm, which will help us see and fix
-                problems before any real world testing.
-            </p>
-            <div class="row">
-                <div class="col-md-6 img-captioned">
-                    <img src="${lph}/../images/jankasselectronics.jpg" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Robot stopped automatically when it detects a barrier</i></p>
-                </div>
-                <div class="col-md-6 img-captioned">
-                    <img src="${lph}/../images/stacked.jpg" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Electronic setup from top to bottom: motor controller, GPIO HAT, and Raspi</i></p>
-                </div>
-            </div>
-
-            <h4 class="featurette-heading">Week of October 28</h4>
-            <p class="lead">
-                Assembled the motor driver and installed on the robot. In addition to confirming the functionality of
-                the ultrasonic sensors wirelessly, we began testing autonomous driving code to run simple paths. Both
-                can be deployed wirelessly via the Raspi's wifi access point. We also began preliminary tests for
-                speed, ability to clear small obstacles, and battery longevity. Some major obstacles that we overcame
-                this week include difficulties with the motor controller; however, we are facing other ongoing issues,
-                such as the inability to connect to Raspis via an existing internet connection, which is resulting in a
-                more involved download and update procedure.
-            </p>
-            <div class="row">
-                <div class="col-md-8 img-captioned" style="margin: auto">
-                    <img src="${lph}/../images/bighops.PNG" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Robot, driving over a staircase arrangement of wood</i></p>
+            <div>
+                <h4 class="featurette-heading">Week of October 28</h4>
+                <p class="lead">
+                    Assembled the motor driver and installed on the robot. In addition to confirming the functionality
+                    of
+                    the ultrasonic sensors wirelessly, we began testing autonomous driving code to run simple paths.
+                    Both
+                    can be deployed wirelessly via the Raspi's wifi access point. We also began preliminary tests for
+                    speed, ability to clear small obstacles, and battery longevity. Some major obstacles that we
+                    overcame
+                    this week include difficulties with the motor controller; however, we are facing other ongoing
+                    issues,
+                    such as the inability to connect to Raspis via an existing internet connection, which is resulting
+                    in a
+                    more involved download and update procedure.
+                </p>
+                <div class="row">
+                    <div class="col-md-8 img-captioned" style="margin: auto">
+                        <img src="${lph}/../images/bighops.PNG" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Robot, driving over a staircase arrangement of wood</i></p>
+                    </div>
                 </div>
             </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of October 21</h4>
-            <p class="lead">
-                Found a CAD model, further tested the ultrasonic, and began setting up networking of Raspis. The CAD
-                (pictured below) will be used to model the placement of sensors, electronics, and any other
-                modifications we make to the initial chassis design. Additionally, the ultrasonic setup (pictured
-                below) was tested to find the range of accuracy. Graphs of error from the tests are also pictured
-                below. We used five trials at each test distance, and graphed the average percent error. Finally,
-                we began setting up the robot to workstation network communication.
-            </p>
-            <div class="row">
-                <div class="col-md-8 img-captioned" style="margin: auto">
-                    <img src="${lph}/../images/timmyangle.png" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Chassis CAD</i></p>
-                </div>
-                <div class="col-md-6 img-captioned">
-                    <img src="${lph}/../images/timmytop.png" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Chassis CAD, top view</i></p>
-                </div>
-                <div class="col-md-6 img-captioned">
-                    <img src="${lph}/../images/timmyfront.png" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Chassis CAD, front view</i></p>
-                </div>
-                <div class="col-md-6 img-captioned">
-                    <img src="${lph}/../images/ultrasonic.jpg" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Ultrasonic Circuit</i></p>
-                </div>
-                <div class="col-md-6 img-captioned">
-                    <img src="${lph}/../images/ultrasonicgraph.png" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Average Error of Measurements</i></p>
-                </div>
-            </div>
-            <h4 class="featurette-heading">Week of October 14</h4>
-            <p class="lead">
-                Worked on CAD model and developed program for ultrasonic distance sensing. We created a basic outline
-                of the main frame and drive train in order to map out the location of future sensors and electronics.
-                The circuit and program that we began setting up last week was completed as well, using a HAT device to
-                easily connect the circuit with the Raspberry Pi. The initial tests of readings were reasonable in the
-                10 - 100 cm range, but we will test the range of accuracy more thoroughly in the upcoming week. In
-                addition, we found some more potential sources of funding, including the Pacific Grove Alumni
-                Association, Lockheed Martin, Pebble Beach Foundation, and Chevron: Fuel Your School.
-            </p>
-            <h4 class="featurette-heading">Week of October 7</h4>
-            <p class="lead">
-                Received our order of additional Raspberry Pi 3Bs for future robots,
-                our first robot chassis (wild thumper 4WD chassis with suspension - pictured below),
-                batteries to power the robots (7.2v. 3000mvh) and an HR-SR04 ultrasonic sensor (pictured below)
-                which we will begin testing next week. We were working on imaging Raspberry Pis with Raspbian, but will
-                most likely use <a href="https://downloads.ubiquityrobotics.com/">Ubuntu with ROS Kinetic</a> to
-                facilitate the use of that system. Additionally, we began building the
-                <a href="https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/">
-                    circuit for the ultrasonic</a>,
-                which will be driving the majority of the object detection in our system. We also started
-                applying to additional grants in the local area in order to secure extra funding.
-                Finally, we ordered the motor controller for the robot and plan on testing full motion and
-                functionality into next week.
-            </p>
-            <div class="row">
-                <div class="col-md-5 img-captioned">
-                    <img src="${lph}/../images/timmy.jpg" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Wild Thumper Chassis</i></p>
-                </div>
-                <div class="col-md-5 img-captioned">
-                    <img src="${lph}/../images/googlyeyes.jpg" class="post-img img-fluid d-block">
-                    <p class="lead"><i>Ultrasonic Sensor</i></p>
+                <h4 class="featurette-heading">Week of October 21</h4>
+                <p class="lead">
+                    Found a CAD model, further tested the ultrasonic, and began setting up networking of Raspis. The
+                    CAD
+                    (pictured below) will be used to model the placement of sensors, electronics, and any other
+                    modifications we make to the initial chassis design. Additionally, the ultrasonic setup (pictured
+                    below) was tested to find the range of accuracy. Graphs of error from the tests are also pictured
+                    below. We used five trials at each test distance, and graphed the average percent error. Finally,
+                    we began setting up the robot to workstation network communication.
+                </p>
+                <div class="row">
+                    <div class="col-md-8 img-captioned" style="margin: auto">
+                        <img src="${lph}/../images/timmyangle.png" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Chassis CAD</i></p>
+                    </div>
+                    <div class="col-md-6 img-captioned">
+                        <img src="${lph}/../images/timmytop.png" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Chassis CAD, top view</i></p>
+                    </div>
+                    <div class="col-md-6 img-captioned">
+                        <img src="${lph}/../images/timmyfront.png" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Chassis CAD, front view</i></p>
+                    </div>
+                    <div class="col-md-6 img-captioned">
+                        <img src="${lph}/../images/ultrasonic.jpg" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Ultrasonic Circuit</i></p>
+                    </div>
+                    <div class="col-md-6 img-captioned">
+                        <img src="${lph}/../images/ultrasonicgraph.png" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Average Error of Measurements</i></p>
+                    </div>
                 </div>
             </div>
+            <div>
+                <h4 class="featurette-heading">Week of October 14</h4>
+                <p class="lead">
+                    Worked on CAD model and developed program for ultrasonic distance sensing. We created a basic
+                    outline
+                    of the main frame and drive train in order to map out the location of future sensors and
+                    electronics.
+                    The circuit and program that we began setting up last week was completed as well, using a HAT
+                    device to
+                    easily connect the circuit with the Raspberry Pi. The initial tests of readings were reasonable in
+                    the
+                    10 - 100 cm range, but we will test the range of accuracy more thoroughly in the upcoming week. In
+                    addition, we found some more potential sources of funding, including the Pacific Grove Alumni
+                    Association, Lockheed Martin, Pebble Beach Foundation, and Chevron: Fuel Your School.
+                </p>
+            </div>
+            <div>
+                <h4 class="featurette-heading">Week of October 7</h4>
+                <p class="lead">
+                    Received our order of additional Raspberry Pi 3Bs for future robots,
+                    our first robot chassis (wild thumper 4WD chassis with suspension - pictured below),
+                    batteries to power the robots (7.2v. 3000mvh) and an HR-SR04 ultrasonic sensor (pictured below)
+                    which we will begin testing next week. We were working on imaging Raspberry Pis with Raspbian, but
+                    will
+                    most likely use <a href="https://downloads.ubiquityrobotics.com/">Ubuntu with ROS Kinetic</a> to
+                    facilitate the use of that system. Additionally, we began building the
+                    <a href="https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/">
+                        circuit for the ultrasonic</a>,
+                    which will be driving the majority of the object detection in our system. We also started
+                    applying to additional grants in the local area in order to secure extra funding.
+                    Finally, we ordered the motor controller for the robot and plan on testing full motion and
+                    functionality into next week.
+                </p>
+                <div class="row">
+                    <div class="col-md-5 img-captioned">
+                        <img src="${lph}/../images/timmy.jpg" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Wild Thumper Chassis</i></p>
+                    </div>
+                    <div class="col-md-5 img-captioned">
+                        <img src="${lph}/../images/googlyeyes.jpg" class="post-img img-fluid d-block">
+                        <p class="lead"><i>Ultrasonic Sensor</i></p>
+                    </div>
+                </div>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of September 30</h4>
-            <p class="lead">
-                Began setting up Raspberry Pis for prototyping and swarm simulations. This involved downloading and
-                installing <a href="https://www.raspberrypi.org/downloads/noobs/">Raspbian through NOOBS</a>. We
-                were only able to successfully boot up one computer at this time, most likely due to the SD cards used
-                to install Raspbian on the other machines.
-            </p>
+                <h4 class="featurette-heading">Week of September 30</h4>
+                <p class="lead">
+                    Began setting up Raspberry Pis for prototyping and swarm simulations. This involved downloading and
+                    installing <a href="https://www.raspberrypi.org/downloads/noobs/">Raspbian through NOOBS</a>. We
+                    were only able to successfully boot up one computer at this time, most likely due to the SD cards
+                    used
+                    to install Raspbian on the other machines.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of September 23</h4>
-            <p class="lead">
-                Researched software for swarm simulation and controlling robots. Based on previous research, the
-                primary operation system to control robots, outside of writing our own software, is the <a href="http://wiki.ros.org/ROS/Introduction">Robot
-                    Operating System (ROS)</a>. An open source software, ROS seems to have a quite extensive
-                community
-                and codebase to work from. There are a few projects by other users which involve swarm
-                communications,
-                which provides a nice starting point to guide our algorithms. In terms of simulations, we looked at
-                a few different options including <a href="http://playerstage.sourceforge.net/doc/Stage-3.2.1/index.html">Stage</a>,
-                a simulator for swarm robotics, and <a href="https://www.argos-sim.info/concepts.php">ARGoS</a>, a
-                large-scale robot simulator. Both seem like accurate and useful simulators, but our final decision
-                is to use <a href="http://gazebosim.org/">Gazebo</a> due to its close ties with the ROS community.
-                Gazebo will allow us to visualize the interactions within the robot swarm and develop an algorithm for
-                the mapping algorithm before building a physical swarm, and can also allow us to predict how the
-                algorithm will scale up if more robot were added to the swarm.
-            </p>
+                <h4 class="featurette-heading">Week of September 23</h4>
+                <p class="lead">
+                    Researched software for swarm simulation and controlling robots. Based on previous research, the
+                    primary operation system to control robots, outside of writing our own software, is the <a href="http://wiki.ros.org/ROS/Introduction">Robot
+                        Operating System (ROS)</a>. An open source software, ROS seems to have a quite extensive
+                    community
+                    and codebase to work from. There are a few projects by other users which involve swarm
+                    communications,
+                    which provides a nice starting point to guide our algorithms. In terms of simulations, we looked at
+                    a few different options including <a href="http://playerstage.sourceforge.net/doc/Stage-3.2.1/index.html">Stage</a>,
+                    a simulator for swarm robotics, and <a href="https://www.argos-sim.info/concepts.php">ARGoS</a>, a
+                    large-scale robot simulator. Both seem like accurate and useful simulators, but our final decision
+                    is to use <a href="http://gazebosim.org/">Gazebo</a> due to its close ties with the ROS community.
+                    Gazebo will allow us to visualize the interactions within the robot swarm and develop an algorithm
+                    for
+                    the mapping algorithm before building a physical swarm, and can also allow us to predict how the
+                    algorithm will scale up if more robot were added to the swarm.
+                </p>
 
-            <h4 class="featurette-heading">Week of September 16</h4>
-            <p class="lead">
-                Finished <a href="https://docs.google.com/document/d/1qvDgJri6-DRLp8xI9HlUJ1yOsFxDKFsRWZAjstPOQb0/edit?usp=sharing">formal
-                    research proposal</a>. Additionally, we continued to look for a robot kit and corresponding
-                electronics.
-                The kit we will prototype with is the <a href="https://www.pololu.com/product/1567">Wild Thumper</a>
-                chassis, with <a href="http://www.dagurobot.com/DAGU_Wild_Thumper_encoders_RS003_Enco_with_motor_75_1?search=wild%20thumper&category_id=0">
-                    these motors</a> and <a href="https://www.amazon.com/Powerextra-Capacity-Connectors-Compatiable-Helicopter/dp/B06WD5VRYZ/ref=sr_1_2_sspa?keywords=7.2v+rc+battery&qid=1569011675&s=toys-and-games&sr=1-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFMWkkwUE9ISDZFMVImZW5jcnlwdGVkSWQ9QTA1NTczMjBKVTBMVTFFWElOVkImZW5jcnlwdGVkQWRJZD1BMDcwNjAyODJNTEI5NUY1NDlFUU4md2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl">
-                    this battery</a>. We chose this chassis for various reasons. The four wheel drive and
-                suspension allows the robot to drive comfortably in all terrain types. The chassis also has plenty of
-                room for sensors, and the dimensions of the robot are ideal for our purpose. We also plan to order
-                multiple Raspberry Pis to begin the prototyping and simulation processes.
-            </p>
+            </div>
+            <div>
+                <h4 class="featurette-heading">Week of September 16</h4>
+                <p class="lead">
+                    Finished <a href="https://docs.google.com/document/d/1qvDgJri6-DRLp8xI9HlUJ1yOsFxDKFsRWZAjstPOQb0/edit?usp=sharing">formal
+                        research proposal</a>. Additionally, we continued to look for a robot kit and corresponding
+                    electronics.
+                    The kit we will prototype with is the <a href="https://www.pololu.com/product/1567">Wild Thumper</a>
+                    chassis, with <a href="http://www.dagurobot.com/DAGU_Wild_Thumper_encoders_RS003_Enco_with_motor_75_1?search=wild%20thumper&category_id=0">
+                        these motors</a> and <a href="https://www.amazon.com/Powerextra-Capacity-Connectors-Compatiable-Helicopter/dp/B06WD5VRYZ/ref=sr_1_2_sspa?keywords=7.2v+rc+battery&qid=1569011675&s=toys-and-games&sr=1-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFMWkkwUE9ISDZFMVImZW5jcnlwdGVkSWQ9QTA1NTczMjBKVTBMVTFFWElOVkImZW5jcnlwdGVkQWRJZD1BMDcwNjAyODJNTEI5NUY1NDlFUU4md2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl">
+                        this battery</a>. We chose this chassis for various reasons. The four wheel drive and
+                    suspension allows the robot to drive comfortably in all terrain types. The chassis also has plenty
+                    of
+                    room for sensors, and the dimensions of the robot are ideal for our purpose. We also plan to order
+                    multiple Raspberry Pis to begin the prototyping and simulation processes.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of September 9</h4>
-            <p class="lead">
-                Modified the future work timeline in order to put greater importance on the swarm rather than
-                individual robot design. Also, we decided to purchase a robot from a kit, instead of trying to
-                design and manufacture all components of the robots. Some of the designs that we are considering
-                include the <a href="https://www.robotshop.com/en/dfrobotshop-rover-tracked-robot-basic-kit.html">
-                    DFRobotShop Rover V2 - Arduino Compatible Tracked Robot (Basic Kit)</a>,
-                the <a href="https://www.dexterindustries.com/product/gopigo-beginner-starter-kit/">
-                    GoPiGo Beginner Starter Kit</a>, and
-                the <a href="https://www.robotshop.com/en/picar-s-raspberry-pi-3-2b-smart-car-kit.html">
-                    PiCar-S Raspberry Pi 3/2/B+ Smart Car Kit</a>.
-                We also have prepared a rough draft for our formal research proposal, which will be submitted by
-                September 20. Our next steps are to begin testing communications between Raspberry Pi units, which
-                should help us form the basis of cross-robot communications in the swarm.
-            </p>
+                <h4 class="featurette-heading">Week of September 9</h4>
+                <p class="lead">
+                    Modified the future work timeline in order to put greater importance on the swarm rather than
+                    individual robot design. Also, we decided to purchase a robot from a kit, instead of trying to
+                    design and manufacture all components of the robots. Some of the designs that we are considering
+                    include the <a href="https://www.robotshop.com/en/dfrobotshop-rover-tracked-robot-basic-kit.html">
+                        DFRobotShop Rover V2 - Arduino Compatible Tracked Robot (Basic Kit)</a>,
+                    the <a href="https://www.dexterindustries.com/product/gopigo-beginner-starter-kit/">
+                        GoPiGo Beginner Starter Kit</a>, and
+                    the <a href="https://www.robotshop.com/en/picar-s-raspberry-pi-3-2b-smart-car-kit.html">
+                        PiCar-S Raspberry Pi 3/2/B+ Smart Car Kit</a>.
+                    We also have prepared a rough draft for our formal research proposal, which will be submitted by
+                    September 20. Our next steps are to begin testing communications between Raspberry Pi units, which
+                    should help us form the basis of cross-robot communications in the swarm.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of August 26</h4>
-            <p class="lead">
-                Designed and published website to publish our progress. In addition, we began to
-                draft our formal research proposal.
-            </p>
+                <h4 class="featurette-heading">Week of August 26</h4>
+                <p class="lead">
+                    Designed and published website to publish our progress. In addition, we began to
+                    draft our formal research proposal.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of August 19</h4>
-            <p class="lead">
-                Submitted a grant application to PG Pride. If awarded, this grant will fund the majority of our
-                research project, including
-                materials costs for building up to 12 robots as well as a central Raspberry Pi module.
-            </p>
+                <h4 class="featurette-heading">Week of August 19</h4>
+                <p class="lead">
+                    Submitted a grant application to PG Pride. If awarded, this grant will fund the majority of our
+                    research project, including
+                    materials costs for building up to 12 robots as well as a central Raspberry Pi module.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of August 12</h4>
-            <p class="lead">
-                Developed specific research question and individual robot constraints for the swarm. We chose to
-                try and create a map using swarm technology. To test and evaluate the success of our swarm, we will be
-                aiming to map our high school's campus.
-            </p>
+                <h4 class="featurette-heading">Week of August 12</h4>
+                <p class="lead">
+                    Developed specific research question and individual robot constraints for the swarm. We chose to
+                    try and create a map using swarm technology. To test and evaluate the success of our swarm, we will
+                    be
+                    aiming to map our high school's campus.
+                </p>
+            </div>
+            <div>
 
-            <h4 class="featurette-heading">Week of August 5</h4>
-            <p class="lead">
-                Chose broad research topic of swarm robotics to pursue for our research project. We also outlined
-                general deadlines and deliverables
-                to be expected throughout the year.
-                <br><br>
-                <I><a href="${lph}/../swarm">Back to Top</a></I>
-            </p>
+                <h4 class="featurette-heading">Week of August 5</h4>
+                <p class="lead">
+                    Chose broad research topic of swarm robotics to pursue for our research project. We also outlined
+                    general deadlines and deliverables
+                    to be expected throughout the year.
+                </p>
+            </div>
         </div>
+        <I><a href="${lph}/../swarm">Back to Top</a></I>
+    </div>
+    <!--
         <hr class="featurette-divider" id="timeline">
         <h1 class="featurette-heading">Upcoming Goals</h1>
-    </div>
     <div class="timeline">
         <div class="timeline-container timeline-left">
             <div class="timeline-content">
@@ -524,6 +677,7 @@
     <p class="lead" style="margin-left: 1%">
         <i><a href="${lph}/../swarm#top">Back to Top</a></i>
     </p>
+-->
     <hr class="featurette-divider">
 
 </body>

@@ -17,6 +17,16 @@
     box-sizing: border-box;
   }
 
+  .reverse {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column-reverse;
+    flex-flow: column-reverse;
+  }
+
   
   /* The actual timeline (the vertical ruler) */
   .timeline {
